@@ -8,20 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		09E3277B2102F481008BE91A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E3277A2102F481008BE91A /* AppDelegate.swift */; };
-		09E3277D2102F481008BE91A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E3277C2102F481008BE91A /* ViewController.swift */; };
 		09E327802102F481008BE91A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09E3277E2102F481008BE91A /* Main.storyboard */; };
 		09E327822102F48D008BE91A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09E327812102F48D008BE91A /* Assets.xcassets */; };
 		09E327852102F48D008BE91A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09E327832102F48D008BE91A /* LaunchScreen.storyboard */; };
+		09E327912102F5A6008BE91A /* SoiHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E327902102F5A6008BE91A /* SoiHomeVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		09E327772102F481008BE91A /* Soi71.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soi71.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09E3277A2102F481008BE91A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		09E3277C2102F481008BE91A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		09E3277F2102F481008BE91A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		09E327812102F48D008BE91A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09E327842102F48D008BE91A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09E327862102F48D008BE91A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09E327902102F5A6008BE91A /* SoiHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoiHomeVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +54,46 @@
 		09E327792102F481008BE91A /* Soi71 */ = {
 			isa = PBXGroup;
 			children = (
-				09E3277A2102F481008BE91A /* AppDelegate.swift */,
-				09E3277C2102F481008BE91A /* ViewController.swift */,
-				09E3277E2102F481008BE91A /* Main.storyboard */,
-				09E327812102F48D008BE91A /* Assets.xcassets */,
-				09E327832102F48D008BE91A /* LaunchScreen.storyboard */,
+				09E3278F2102F509008BE91A /* Supporting_Fiels */,
+				09E3278E2102F4F0008BE91A /* Model */,
+				09E3278D2102F4E5008BE91A /* View */,
+				09E3278C2102F4D5008BE91A /* Controller */,
 				09E327862102F48D008BE91A /* Info.plist */,
 			);
 			path = Soi71;
+			sourceTree = "<group>";
+		};
+		09E3278C2102F4D5008BE91A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				09E327902102F5A6008BE91A /* SoiHomeVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		09E3278D2102F4E5008BE91A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				09E3277E2102F481008BE91A /* Main.storyboard */,
+				09E327832102F48D008BE91A /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		09E3278E2102F4F0008BE91A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		09E3278F2102F509008BE91A /* Supporting_Fiels */ = {
+			isa = PBXGroup;
+			children = (
+				09E3277A2102F481008BE91A /* AppDelegate.swift */,
+				09E327812102F48D008BE91A /* Assets.xcassets */,
+			);
+			path = Supporting_Fiels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +167,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09E3277D2102F481008BE91A /* ViewController.swift in Sources */,
 				09E3277B2102F481008BE91A /* AppDelegate.swift in Sources */,
+				09E327912102F5A6008BE91A /* SoiHomeVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +315,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QPVL829J5A;
 				INFOPLIST_FILE = Soi71/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -301,6 +334,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QPVL829J5A;
 				INFOPLIST_FILE = Soi71/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
