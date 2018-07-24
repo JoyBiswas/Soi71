@@ -10,20 +10,15 @@ import UIKit
 
 class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
-    @IBOutlet weak var searchBar: UISearchBar!
+   
     @IBOutlet weak var searchProductTable:UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        searchBar.backgroundImage = UIImage()
+      
        
-        
-        
-        searchBar.barTintColor = UIColor.white
-        searchBar.backgroundColor = UIColor.green
-        searchBar.isTranslucent = true
-        searchBar.barStyle = UIBarStyle.blackOpaque
+   
         self.searchProductTable.reloadData()
     }
     override func didReceiveMemoryWarning() {

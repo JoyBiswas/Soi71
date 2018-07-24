@@ -40,8 +40,9 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
         if let cell = menuListTable.dequeueReusableCell(withIdentifier: "MCell") as? MenuTableCell {
             cell.menuImage.image = #imageLiteral(resourceName: "bg.jpg")
-            cell.menuName.text = "S-01.Crispy Duck"
+            cell.menuName.text = "S-01.Crispy Duck,01kkjkjksdhjhhS1kkjkjksdhjhh"
             cell.menuPrice.text = "$950.0"
+            
             return cell
             
         }else {
@@ -50,7 +51,7 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 148.0
+        return 101.0
     }
 //    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
 //        let shadowView = UIView()
@@ -92,5 +93,22 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
     }
     
-
+    
+    @IBAction func viewDetailsButtonTapped(_ sender: Any) {
+        print("hello view")
+        let buttonPosition:CGPoint = (sender as AnyObject).convert(CGPoint.zero, to: self.menuListTable)
+        if let indexPath = self.menuListTable.indexPathForRow(at: buttonPosition) {
+            print(indexPath.row )
+            self.performSegue(withIdentifier: "toDetailsVc", sender: nil)
+        }
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toDetailsVc" {
+            let vc = segue.destination as! MenuDetailsVC
+            vc.name = "yello"
+        }
+    }
+    
 }
