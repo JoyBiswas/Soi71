@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import FBSDKCoreKit
+import FBSDKLoginKit
+import GoogleSignIn
 
-class SoiHomeVC: UIViewController {
+
+
+class SoiHomeVC: UIViewController,GIDSignInUIDelegate{
     
     @IBOutlet weak var menuButton: UIButton!
     
@@ -20,6 +25,7 @@ class SoiHomeVC: UIViewController {
     @IBOutlet weak var aboutusBTN: UIButton!
     
     @IBOutlet weak var accountBTn: UIButton!
+
     
     
     @IBOutlet weak var menuViewBTN: UIButton!
@@ -41,6 +47,9 @@ class SoiHomeVC: UIViewController {
         self.saleMenuBtn.isHidden = true
         self.menuCategoriesBTN.isHidden = true
         self.reservationBTN.isHidden = true
+        GIDSignIn.sharedInstance().uiDelegate = self
+       
+       // self.mostDownload()
     }
 
     
@@ -94,21 +103,56 @@ class SoiHomeVC: UIViewController {
         
     }
     
-}
-extension UIColor {
-    convenience init(red: Int, green: Int, blue: Int) {
-        assert(red >= 0 && red <= 255, "Invalid red component")
-        assert(green >= 0 && green <= 255, "Invalid green component")
-        assert(blue >= 0 && blue <= 255, "Invalid blue component")
-        
-        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    @IBAction func fbLoginBtnTapped(_ sender: Any) {
+        let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
+        fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) -> Void in
+            if (error == nil){
+                let fbloginresult : FBSDKLoginManagerLoginResult = result!
+                // if user cancel the login
+                if (result?.isCancelled)!{
+                    return
+                }
+                if(fbloginresult.grantedPermissions.contains("email"))
+                {
+                    self.getFBUserData()
+                }
+            }
+        }
     }
     
-    convenience init(rgb: Int) {
-        self.init(
-            red: (rgb >> 16) & 0xFF,
-            green: (rgb >> 8) & 0xFF,
-            blue: rgb & 0xFF
-        )
+    func getFBUserData(){
+        if((FBSDKAccessToken.current()) != nil){
+            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
+                if (error == nil){
+                    //everything works print the user data
+                    print(result as Any)
+                }
+            })
+        }
     }
+    
+
+    func sign(inWillDispatch signIn: GIDSignIn!, error: Error!) {
+        
+    }
+    
+    // Present a view that prompts the user to sign in with Google
+    func sign(_ signIn: GIDSignIn!,
+              present viewController: UIViewController!) {
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    // Dismiss the "Sign in with Google" view
+    func sign(_ signIn: GIDSignIn!,
+              dismiss viewController: UIViewController!) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func googleSignButtonTapped(_ sender: Any) {
+        
+        GIDSignIn.sharedInstance().signIn()
+        
+    }
+  
+    
 }

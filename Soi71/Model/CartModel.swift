@@ -1,13 +1,14 @@
 //
-//  MenuModel.swift
+//  CartModel.swift
 //  Soi71
 //
-//  Created by RIO on 7/23/18.
+//  Created by JOY BISWAS on 7/25/18.
 //  Copyright © 2018 RIO. All rights reserved.
 //
 
 import Foundation
-class MenuModel {
+
+class CartModel {
     
     
 }

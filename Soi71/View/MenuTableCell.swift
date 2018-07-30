@@ -24,5 +24,6 @@ class MenuTableCell: UITableViewCell {
     }
     
     @IBAction func addToChartBtnTapped(_ sender: Any) {
+        print("Add to chart Pressed")
     }
 }
