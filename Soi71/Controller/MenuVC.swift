@@ -8,16 +8,22 @@
 
 import UIKit
 
-class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate {
     
     @IBOutlet weak var searchTextField: UITextField!
     
     @IBOutlet weak var searchTextFieldImage: UIImageView!
-    var inSearchmood = false
+    var inSearchMode = false
+    var showSearch = false
     
     @IBOutlet weak var menuSearchBtn: UIButton!
     
     @IBOutlet weak var menuListTable: UITableView!
+    var selectedIndexPath: NSIndexPath = NSIndexPath()
+
+    
+    var menu = [MenuModel]()
+    var filteredObject:[MenuModel]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +32,7 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         self.searchTextFieldImage.isHidden = true
         self.menuListTable.reloadData()
         self.mostDownload()
+        searchTextField.delegate = self
       
         
     }
@@ -34,15 +41,33 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if inSearchMode {
+            
+            return (filteredObject?.count)!
+        }
         
-        return 15
+        return menu.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        
+        
         if let cell = menuListTable.dequeueReusableCell(withIdentifier: "MCell") as? MenuTableCell {
-            cell.menuImage.image = #imageLiteral(resourceName: "bg.jpg")
-            cell.menuName.text = "S-01.Crispy Duck,01kkjkjksdhjhhS1kkjkjksdhjhh"
-            cell.menuPrice.text = "$950.0"
+            
+            
+            
+            let menu: MenuModel!
+          
+            if inSearchMode {
+                menu = filteredObject?[indexPath.row]
+                
+            } else {
+                
+                menu = self.menu[indexPath.row]
+                
+            }
+            
+            cell.configureCell(menu: menu, img: nil)
             
             return cell
             
@@ -89,27 +114,36 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                                 
                                 jsonElement = realValueDict[i] as! NSDictionary
                                 print("JOYadrota \(jsonElement.allValues)")
-                                if let name = jsonElement["title"] as? String,let count = jsonElement["id"] as? Int,let regular_price = jsonElement["regular_price"] as? String,
-                                    let categories = jsonElement["categories"] as? [String],let image = jsonElement["images"] as? [[String:Any]]{
+                                if let name = jsonElement["title"] as? String,
+                                    let regular_price = jsonElement["regular_price"] as? String,
+                                    let categories = jsonElement["categories"] as? [String],
+                                    let image = jsonElement["images"] as? [[String:Any]]{
                                     
-                                    let img = image.first
-                                    print(name,count,regular_price,categories.first as! String,img!["src"] as! String)
+                                    if let img = image.first {
+                                        
+                                        if let cate = categories.first {
+                                            let aMenu = MenuModel(menuImage: img["src"] as! String, menuName: name, menuPrice: regular_price, menuCategory: cate)
+                                            self.menu.append(aMenu)
+                                            
+                                        }
+                                    }
+                                    
                                     
                                 }
                                 
                                 
                                 
-                                
+                                DispatchQueue.main.async(execute: {
+                                    self.menuListTable.reloadData()
+                                    
+                                })
+
                                 
                                 
                             }
                         }
                         
                         
-                        DispatchQueue.main.async(execute: {
-                            
-                            
-                        })
                         
                     }
                 }catch let error as NSError{
@@ -123,7 +157,7 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBAction func manuSearchBtnTapped(_ sender: Any) {
         
-        if inSearchmood {
+        if showSearch {
             self.searchTextField.isHidden = true
             self.searchTextFieldImage.isHidden = true
            self.menuSearchBtn.setImage(UIImage(named: "searchIUconWhite.png"), for: .normal)
@@ -133,7 +167,44 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             self.menuSearchBtn.setImage(UIImage(named: "searchIcon.png"), for: .normal)
             
         }
-        inSearchmood = !inSearchmood
+        showSearch = !showSearch
+        
+    }
+    
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+
+ searchTextField.resignFirstResponder()
+        
+        return true
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        self.searchTextField.endEditing(true)
+        
+    }
+    
+    @IBAction func searchForProduct(_ sender: Any) {
+        if searchTextField.text == nil || searchTextField.text == "" {
+            
+            inSearchMode = false
+            self.menuListTable.reloadData()
+            view.endEditing(true)
+            
+        } else {
+            
+            inSearchMode = true
+            let lowerCase = searchTextField.text!.lowercased()
+            
+            
+            filteredObject = menu.filter({$0.menuName.lowercased().hasPrefix(lowerCase) })
+            
+            self.menuListTable.reloadData()
+            
+            
+            
+        }
         
     }
     
@@ -142,16 +213,34 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         print("hello view")
         let buttonPosition:CGPoint = (sender as AnyObject).convert(CGPoint.zero, to: self.menuListTable)
         if let indexPath = self.menuListTable.indexPathForRow(at: buttonPosition) {
-            print(indexPath.row )
+            self.selectedIndexPath = indexPath as NSIndexPath
             self.performSegue(withIdentifier: "toDetailsVc", sender: nil)
         }
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        let indexpath = self.selectedIndexPath
+        
         if segue.identifier == "toDetailsVc" {
             let vc = segue.destination as! MenuDetailsVC
-            vc.name = "yello"
+            if inSearchMode {
+                let menu = filteredObject?[indexpath.row]
+                
+                vc.menuName = menu?.menuName
+                vc.menuCategory = menu?.menuCategory
+                vc.menuPrice = menu?.menuPrice
+              
+            }else {
+                
+                let menu = self.menu[indexpath.row]
+                
+                vc.menuName = menu.menuName
+                vc.menuCategory = menu.menuCategory
+                vc.menuPrice = menu.menuPrice
+                vc.imageString = menu.menuImage
+            }
+
         }
     }
     

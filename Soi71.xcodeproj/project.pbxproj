@@ -124,6 +124,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		093CB1CD2110246200BA30BA /* CustomeView */ = {
+			isa = PBXGroup;
+			children = (
+				09DE2E68210726A3005859E0 /* FancyBtn.swift */,
+				CEA9F17F210C293200277E65 /* FancyView.swift */,
+				CE6E24F62108730F0015F6A5 /* FancyLabal.swift */,
+			);
+			path = CustomeView;
+			sourceTree = "<group>";
+		};
 		09E3276E2102F480008BE91A = {
 			isa = PBXGroup;
 			children = (
@@ -174,15 +184,13 @@
 		09E3278D2102F4E5008BE91A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				093CB1CD2110246200BA30BA /* CustomeView */,
 				09E3277E2102F481008BE91A /* Main.storyboard */,
 				09E327832102F48D008BE91A /* LaunchScreen.storyboard */,
 				09E327B9210497BB008BE91A /* SearcProducTableCell.swift */,
 				09D4BF552105A00000B99581 /* MenuTableCell.swift */,
-				09DE2E68210726A3005859E0 /* FancyBtn.swift */,
-				CEA9F17F210C293200277E65 /* FancyView.swift */,
 				09D4BF5B2105E68E00B99581 /* CategoryTableCell.swift */,
 				CE6E24F221086D040015F6A5 /* CartTableCell.swift */,
-				CE6E24F62108730F0015F6A5 /* FancyLabal.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

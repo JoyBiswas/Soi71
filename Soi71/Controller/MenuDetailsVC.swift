@@ -9,28 +9,67 @@
 import UIKit
 
 class MenuDetailsVC: UIViewController {
-    var name:String!
+    var menuName:String!
+    var menuPrice:String!
+    var menuCategory:String!
+    var imageString:String!
+    
+    @IBOutlet weak var menuImageView: UIImageView!
+    
+    
+    @IBOutlet weak var menuNameTV: UITextView!
+    
+    @IBOutlet weak var menuPriceLbl: UILabel!
+    
+    @IBOutlet weak var orderCountTextLbl: UILabel!
+    
+    
+    @IBOutlet weak var categoryLbl: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-  print(self.name)
-        // Do any additional setup after loading the view.
-    }
+        
+        if menuName != "",menuPrice != "",menuCategory != "",imageString != "" {
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+            let url = URL(string: self.imageString)!
+
+            self.downloadImage(url: url)
+            self.menuNameTV.text = self.menuName!
+            self.menuPriceLbl.text = self.menuPrice!
+            self.categoryLbl.text = self.menuCategory!
+            self.orderCountTextLbl.text = "3"
+        }
+        
+       
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            completion(data, response, error)
+            }.resume()
     }
-    */
+    func downloadImage(url: URL) {
+        self.getDataFromUrl(url: url) { data, response, error in
+            guard let data = data, error == nil else { return }
+            
+            DispatchQueue.main.async() {
+                self.menuImageView.image = UIImage(data: data)
+            }
+        }
+    }
 
+    @IBAction func plusButtonForCount(_ sender: Any) {
+        
+        self.orderCountTextLbl.text = String(Int(self.orderCountTextLbl.text!)!+1)
+    }
+    
+    @IBAction func minusButtonCount(_ sender: Any) {
+         self.orderCountTextLbl.text = String(Int(self.orderCountTextLbl.text!)!-1)
+    }
+    
+    @IBAction func addToChartTapped(_ sender: Any) {
+    }
+    
+    
 }

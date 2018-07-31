@@ -842,9 +842,9 @@
                                                             <rect key="frame" x="105" y="78" width="167" height="9"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgM-ih-ylS">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="65" height="9"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="55" height="9"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="65" id="9YW-rX-jGo"/>
+                                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="55" id="9YW-rX-jGo"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
                                                                     <state key="normal" title="View Detail">
@@ -852,14 +852,14 @@
                                                                     </state>
                                                                     <connections>
                                                                         <action selector="viewDetailsButtonTapped:" destination="uba-Ib-FWv" eventType="touchUpInside" id="14m-Id-Hde"/>
-                                                                        <action selector="viewDetileBTnTapped:" destination="fle-gB-2rw" eventType="touchUpInside" id="eA6-7g-iLa"/>
                                                                     </connections>
                                                                 </button>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$7.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pfw-gK-R01">
-                                                                    <rect key="frame" x="65" y="0.0" width="37" height="9"/>
-                                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
+                                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$7.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pfw-gK-R01">
+                                                                    <rect key="frame" x="55" y="0.0" width="47" height="9"/>
+                                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="8"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
+                                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="eD5-7T-jfS">
                                                                     <rect key="frame" x="102" y="0.0" width="65" height="9"/>
@@ -891,7 +891,7 @@
                                                             </constraints>
                                                         </stackView>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="S1.01kkjkjksdhjhhS1.01kkjkjksdhjhhS1.01kkjkjksdhjhhS1.01kkjkjksdhjhhS1.01kkjkjksdhjhhS1.01kkjkjksdhjhhS1.01kkjkjksdhjhh" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rG0-IH-2Ah">
-                                                            <rect key="frame" x="108" y="1" width="165" height="77"/>
+                                                            <rect key="frame" x="106" y="1" width="167" height="77"/>
                                                             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="13"/>
@@ -905,7 +905,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="Ta1-hy-oqd" secondAttribute="trailing" constant="1" id="8Bt-7t-Dr5"/>
                                                         <constraint firstItem="lAd-Ap-i2N" firstAttribute="leading" secondItem="Fvs-Xr-oHB" secondAttribute="trailing" constant="2" id="8kG-Yh-FUN"/>
                                                         <constraint firstItem="Fvs-Xr-oHB" firstAttribute="leading" secondItem="3lw-LJ-Vtq" secondAttribute="leading" constant="3.5" id="AH7-gu-7VB"/>
-                                                        <constraint firstItem="rG0-IH-2Ah" firstAttribute="leading" secondItem="Fvs-Xr-oHB" secondAttribute="trailing" constant="5" id="Bc0-By-WmJ"/>
+                                                        <constraint firstItem="rG0-IH-2Ah" firstAttribute="leading" secondItem="Fvs-Xr-oHB" secondAttribute="trailing" constant="3" id="Bc0-By-WmJ"/>
                                                         <constraint firstItem="rG0-IH-2Ah" firstAttribute="top" secondItem="3lw-LJ-Vtq" secondAttribute="top" constant="1" id="BdW-wd-RaB"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="lAd-Ap-i2N" secondAttribute="trailing" constant="1" id="YlQ-BK-huR"/>
                                                         <constraint firstItem="lAd-Ap-i2N" firstAttribute="bottom" secondItem="3lw-LJ-Vtq" secondAttribute="bottomMargin" constant="-5" id="ZK9-cZ-qkx"/>
@@ -938,13 +938,17 @@
                                 <attributedString key="attributedText">
                                     <fragment content="Search">
                                         <attributes>
-                                            <color key="NSColor" red="0.25882352939999997" green="0.65490196079999996" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="11" name=".AppleSystemUIFont"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tighteningFactorForTruncation="0.0"/>
+                                            <color key="NSColor" red="0.30723163485527039" green="0.69892489910125732" blue="0.22062483429908752" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="12" name="Rockwell-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="searchForProduct:" destination="uba-Ib-FWv" eventType="editingChanged" id="bKm-Gl-7Tk"/>
+                                    <outlet property="delegate" destination="uba-Ib-FWv" id="yie-rg-cOj"/>
+                                </connections>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qMI-Da-Cqp">
                                 <rect key="frame" x="0.0" y="438" width="320" height="75"/>
@@ -1137,6 +1141,9 @@
                                                         <state key="normal" title="+">
                                                             <color key="titleColor" red="0.10979246348142624" green="0.10981056839227676" blue="0.10978416353464127" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="plusButtonForCount:" destination="FgO-4A-Rmv" eventType="touchUpInside" id="8TU-iP-LUS"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RkS-KM-OQz">
                                                         <rect key="frame" x="26.5" y="0.0" width="22" height="25"/>
@@ -1152,6 +1159,9 @@
                                                         <state key="normal" title="−">
                                                             <color key="titleColor" red="0.10979246350000001" green="0.1098105684" blue="0.1097841635" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="minusButtonCount:" destination="FgO-4A-Rmv" eventType="touchUpInside" id="HfA-34-uSW"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -1166,6 +1176,9 @@
                                                 <state key="normal" title="Add to Cart">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="addToChartTapped:" destination="FgO-4A-Rmv" eventType="touchUpInside" id="HPb-bS-2wz"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -1271,6 +1284,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O29-aE-Cdn"/>
                     </view>
+                    <connections>
+                        <outlet property="categoryLbl" destination="EK3-NU-71f" id="IYM-en-E27"/>
+                        <outlet property="menuImageView" destination="OK3-oX-5u6" id="LAw-Gq-w75"/>
+                        <outlet property="menuNameTV" destination="8Vc-0f-LOs" id="jUy-he-t7V"/>
+                        <outlet property="menuPriceLbl" destination="Xwz-Wd-Kwb" id="Ha5-6f-ti9"/>
+                        <outlet property="orderCountTextLbl" destination="RkS-KM-OQz" id="kSA-Vc-oNC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qIW-LJ-G2j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1551,7 +1571,7 @@
                                                         <rect key="frame" x="160" y="0.0" width="138" height="25"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idU-os-YQ5">
-                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="25"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="65" height="25"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="65" id="1se-zz-q4j"/>
                                                                 </constraints>
@@ -1561,7 +1581,7 @@
                                                                 </state>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmv-xt-f3s">
-                                                                <rect key="frame" x="30" y="0.0" width="60" height="25"/>
+                                                                <rect key="frame" x="65" y="0.0" width="28" height="25"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="VAI-L5-Z1K"/>
                                                                 </constraints>
@@ -1571,7 +1591,7 @@
                                                                 </state>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7HA-4w-U0L">
-                                                                <rect key="frame" x="90" y="0.0" width="48" height="25"/>
+                                                                <rect key="frame" x="93" y="0.0" width="45" height="25"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="syR-2A-WfA"/>
                                                                 </constraints>
@@ -2124,9 +2144,9 @@
         <image name="sponIcon.png" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dXi-WY-U9h"/>
-        <segue reference="giF-QF-te8"/>
-        <segue reference="bOm-tS-wjS"/>
-        <segue reference="HgU-IS-HU1"/>
+        <segue reference="lI6-0h-l1X"/>
+        <segue reference="jaQ-Od-WDi"/>
+        <segue reference="gyC-Xz-UvK"/>
+        <segue reference="2zT-Ny-GbX"/>
     </inferredMetricsTieBreakers>
 </document>
