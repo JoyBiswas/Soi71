@@ -517,6 +517,10 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="searchForProduct:" destination="1fw-lo-Y07" eventType="editingChanged" id="V2z-6a-C9F"/>
+                                    <outlet property="delegate" destination="1fw-lo-Y07" id="WUQ-YQ-cSc"/>
+                                </connections>
                             </textField>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bVH-o9-iS9">
                                 <rect key="frame" x="20" y="171" width="280" height="269"/>
@@ -535,32 +539,32 @@
                                                 <rect key="frame" x="0.0" y="134.5" width="280" height="134.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="wLJ-W8-R9p">
-                                                        <rect key="frame" x="10" y="15" width="260" height="69.5"/>
+                                                        <rect key="frame" x="8" y="15" width="262" height="79.5"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Fle-om-d77">
-                                                                <rect key="frame" x="0.0" y="0.0" width="170" height="69.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="172" height="79.5"/>
                                                                 <subviews>
                                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="S1.01kkjkjksdhjhhS1.01kkjkjksdhjhhS1.01kkjkjksdhjhhS1.01kkjkjksdhjhhS1.01kkjkjksdhjhhS1.01kkjkjksdhjhhS1.01kkjkjksdhjhh" translatesAutoresizingMaskIntoConstraints="NO" id="iZA-15-md5">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="170" height="51.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="172" height="51.5"/>
                                                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <color key="textColor" red="0.99992686509999995" green="1" blue="0.99987357850000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="11"/>
                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                     </textView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="k0g-N3-m2z">
-                                                                        <rect key="frame" x="4" y="57.5" width="166" height="12"/>
+                                                                        <rect key="frame" x="4" y="57.5" width="168" height="22"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AB3-Js-kRO">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="76" height="12"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="76" height="22"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vT-zX-CUc">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="39" height="12"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="39" height="22"/>
                                                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
                                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=": Chicken" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNZ-XE-GR3">
-                                                                                        <rect key="frame" x="39" y="0.0" width="37" height="12"/>
+                                                                                        <rect key="frame" x="39" y="0.0" width="37" height="22"/>
                                                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
                                                                                         <color key="textColor" red="0.083172224459999999" green="0.59259027239999995" blue="0.25058105590000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                         <nil key="highlightedColor"/>
@@ -568,7 +572,7 @@
                                                                                 </subviews>
                                                                             </stackView>
                                                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2HF-zl-xS2">
-                                                                                <rect key="frame" x="88" y="0.0" width="78" height="12"/>
+                                                                                <rect key="frame" x="88" y="0.0" width="80" height="22"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="mL3-PX-Sea"/>
                                                                                 </constraints>
@@ -592,39 +596,45 @@
                                                                 </constraints>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="0NY-pV-Tzd">
-                                                                <rect key="frame" x="185" y="0.0" width="75" height="69.5"/>
+                                                                <rect key="frame" x="187" y="0.0" width="75" height="79.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$7.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FVm-qx-o5p">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="13"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="16.5"/>
                                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="OqT-TP-WX6">
-                                                                        <rect key="frame" x="0.0" y="28" width="75" height="13.5"/>
+                                                                        <rect key="frame" x="0.0" y="31.5" width="75" height="16.5"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DzB-UO-QGp">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="22.5" height="13.5"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="22.5" height="16.5"/>
                                                                                 <color key="backgroundColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
                                                                                 <state key="normal" title="+">
                                                                                     <color key="titleColor" red="0.10979246350000001" green="0.1098105684" blue="0.1097841635" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="plusButtonForCount:" destination="1fw-lo-Y07" eventType="touchUpInside" id="9NY-aW-lVs"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBn-Kw-Dik">
-                                                                                <rect key="frame" x="26.5" y="0.0" width="22" height="13.5"/>
+                                                                                <rect key="frame" x="26.5" y="0.0" width="22" height="16.5"/>
                                                                                 <color key="backgroundColor" red="0.99992686509999995" green="1" blue="0.99987357850000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                                                 <color key="textColor" red="0.10979246350000001" green="0.1098105684" blue="0.1097841635" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSd-Du-ROc">
-                                                                                <rect key="frame" x="52.5" y="0.0" width="22.5" height="13.5"/>
+                                                                                <rect key="frame" x="52.5" y="0.0" width="22.5" height="16.5"/>
                                                                                 <color key="backgroundColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="17"/>
                                                                                 <state key="normal" title="−">
                                                                                     <color key="titleColor" red="0.10979246350000001" green="0.1098105684" blue="0.1097841635" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="minusButtonCount:" destination="1fw-lo-Y07" eventType="touchUpInside" id="zCy-dT-0F1"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                         <constraints>
@@ -639,12 +649,15 @@
                                                                         </constraints>
                                                                     </stackView>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k85-rq-oRB" customClass="FancyBtn" customModule="Soi71" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="56.5" width="75" height="13"/>
+                                                                        <rect key="frame" x="0.0" y="63" width="75" height="16.5"/>
                                                                         <color key="backgroundColor" red="0.1058823529" green="0.74225096290000003" blue="0.31371017159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                        <fontDescription key="fontDescription" name="Roboto-Black" family="Roboto" pointSize="14"/>
+                                                                        <fontDescription key="fontDescription" name="Roboto-Black" family="Roboto" pointSize="12"/>
                                                                         <state key="normal" title="Add to Cart">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
+                                                                        <connections>
+                                                                            <action selector="addToChartTapped:" destination="1fw-lo-Y07" eventType="touchUpInside" id="80D-wF-pnj"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <constraints>
@@ -666,8 +679,8 @@
                                                 <color key="backgroundColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="wLJ-W8-R9p" secondAttribute="trailing" constant="10" id="3JQ-bn-ofz"/>
-                                                    <constraint firstItem="7iN-J1-oiL" firstAttribute="bottom" secondItem="wLJ-W8-R9p" secondAttribute="bottom" constant="50" id="6kd-xB-i1v"/>
-                                                    <constraint firstItem="wLJ-W8-R9p" firstAttribute="leading" secondItem="7iN-J1-oiL" secondAttribute="leading" constant="10" id="XfQ-Um-XO7"/>
+                                                    <constraint firstItem="7iN-J1-oiL" firstAttribute="bottom" secondItem="wLJ-W8-R9p" secondAttribute="bottom" constant="40" id="6kd-xB-i1v"/>
+                                                    <constraint firstItem="wLJ-W8-R9p" firstAttribute="leading" secondItem="7iN-J1-oiL" secondAttribute="leading" constant="8" id="XfQ-Um-XO7"/>
                                                     <constraint firstItem="wLJ-W8-R9p" firstAttribute="top" secondItem="7iN-J1-oiL" secondAttribute="top" constant="15" id="vmG-6H-bZo"/>
                                                 </constraints>
                                                 <viewLayoutGuide key="safeArea" id="7iN-J1-oiL"/>
@@ -713,9 +726,15 @@
                         <viewLayoutGuide key="safeArea" id="el8-Xz-x2c"/>
                     </view>
                     <connections>
+                        <outlet property="categoryLbl" destination="nNZ-XE-GR3" id="Hck-Qo-NR9"/>
+                        <outlet property="menuImageView" destination="Cq9-9t-jda" id="6E5-xp-afV"/>
+                        <outlet property="menuNameTV" destination="iZA-15-md5" id="pA3-Ij-MNj"/>
+                        <outlet property="menuPriceLbl" destination="FVm-qx-o5p" id="tqJ-ll-qQT"/>
+                        <outlet property="orderCountTextLbl" destination="cBn-Kw-Dik" id="yjW-9L-BVZ"/>
                         <outlet property="popupImageView" destination="Cq9-9t-jda" id="kpx-dT-Bj8"/>
                         <outlet property="popupView" destination="bVH-o9-iS9" id="hah-O1-YSd"/>
                         <outlet property="searchProductTable" destination="R7n-Tc-CdG" id="pko-2w-68k"/>
+                        <outlet property="searchTextField" destination="shW-xW-cYL" id="N7L-4D-Z40"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zdd-Q4-vjj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1571,7 +1590,7 @@
                                                         <rect key="frame" x="160" y="0.0" width="138" height="25"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idU-os-YQ5">
-                                                                <rect key="frame" x="0.0" y="0.0" width="65" height="25"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="25"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="65" id="1se-zz-q4j"/>
                                                                 </constraints>
@@ -1581,7 +1600,7 @@
                                                                 </state>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmv-xt-f3s">
-                                                                <rect key="frame" x="65" y="0.0" width="28" height="25"/>
+                                                                <rect key="frame" x="30" y="0.0" width="60" height="25"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="VAI-L5-Z1K"/>
                                                                 </constraints>
@@ -1591,7 +1610,7 @@
                                                                 </state>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7HA-4w-U0L">
-                                                                <rect key="frame" x="93" y="0.0" width="45" height="25"/>
+                                                                <rect key="frame" x="90" y="0.0" width="48" height="25"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="syR-2A-WfA"/>
                                                                 </constraints>
@@ -2144,9 +2163,9 @@
         <image name="sponIcon.png" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lI6-0h-l1X"/>
-        <segue reference="jaQ-Od-WDi"/>
-        <segue reference="gyC-Xz-UvK"/>
-        <segue reference="2zT-Ny-GbX"/>
+        <segue reference="dXi-WY-U9h"/>
+        <segue reference="eav-cE-ojd"/>
+        <segue reference="9ZA-n7-OhO"/>
+        <segue reference="KR6-To-BOU"/>
     </inferredMetricsTieBreakers>
 </document>

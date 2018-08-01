@@ -29,18 +29,18 @@ class MenuDetailsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         if menuName != "",menuPrice != "",menuCategory != "",imageString != "" {
 
             let url = URL(string: self.imageString)!
 
             self.downloadImage(url: url)
             self.menuNameTV.text = self.menuName!
-            self.menuPriceLbl.text = self.menuPrice!
+            self.menuPriceLbl.text = "$\(self.menuPrice!)"
             self.categoryLbl.text = self.menuCategory!
             self.orderCountTextLbl.text = "3"
         }
-        
+//
        
     }
     
