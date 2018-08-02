@@ -33,7 +33,7 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextF
         self.menuListTable.reloadData()
         self.mostDownload()
         searchTextField.delegate = self
-      
+        
         
     }
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -66,6 +66,10 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextF
                 menu = self.menu[indexPath.row]
                 
             }
+            let selectedView = UIView()
+            selectedView.layer.cornerRadius = 5.0
+            selectedView.backgroundColor = nil
+            cell.selectedBackgroundView = selectedView
             
             cell.configureCell(menu: menu, img: nil)
             
@@ -100,7 +104,7 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextF
                 
                 var jsonResult = NSDictionary()
                 do{
-                    jsonResult = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! NSDictionary;                    print("hisss\(jsonResult)")
+                    jsonResult = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! NSDictionary;                    
                     
                     var jsonElement = NSDictionary()
                     
@@ -113,7 +117,7 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextF
                             {
                                 
                                 jsonElement = realValueDict[i] as! NSDictionary
-                                print("JOYadrota \(jsonElement.allValues)")
+                                
                                 if let name = jsonElement["title"] as? String,
                                     let regular_price = jsonElement["regular_price"] as? String,
                                     let categories = jsonElement["categories"] as? [String],
@@ -207,10 +211,14 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextF
         }
         
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        self.selectedIndexPath = indexPath as NSIndexPath
+        self.performSegue(withIdentifier: "toDetailsVc", sender: nil)
+    }
     
     
     @IBAction func viewDetailsButtonTapped(_ sender: Any) {
-        print("hello view")
         let buttonPosition:CGPoint = (sender as AnyObject).convert(CGPoint.zero, to: self.menuListTable)
         if let indexPath = self.menuListTable.indexPathForRow(at: buttonPosition) {
             self.selectedIndexPath = indexPath as NSIndexPath
@@ -230,6 +238,7 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextF
                 vc.menuName = menu?.menuName
                 vc.menuCategory = menu?.menuCategory
                 vc.menuPrice = menu?.menuPrice
+                vc.imageString = menu?.menuImage
               
             }else {
                 
@@ -242,6 +251,10 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextF
             }
 
         }
+    }
+    
+    @IBAction func backButtonPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
 }

@@ -32,15 +32,15 @@ class MenuDetailsVC: UIViewController {
 
         if menuName != "",menuPrice != "",menuCategory != "",imageString != "" {
 
-            let url = URL(string: self.imageString)!
+            let url = URL(string: self.imageString)
 
-            self.downloadImage(url: url)
+            self.downloadImage(url: url!)
             self.menuNameTV.text = self.menuName!
             self.menuPriceLbl.text = "$\(self.menuPrice!)"
             self.categoryLbl.text = self.menuCategory!
             self.orderCountTextLbl.text = "3"
         }
-//
+
        
     }
     
@@ -71,5 +71,8 @@ class MenuDetailsVC: UIViewController {
     @IBAction func addToChartTapped(_ sender: Any) {
     }
     
+    @IBAction func backButtonPreesed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     
 }

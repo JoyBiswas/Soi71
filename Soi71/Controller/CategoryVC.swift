@@ -62,7 +62,7 @@ class CategoryVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 
                 var jsonResult = NSDictionary()
                 do{
-                    jsonResult = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! NSDictionary;                    print("hisss\(jsonResult)")
+                    jsonResult = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! NSDictionary;                    
                     
                     var jsonElement = NSDictionary()
                     
@@ -75,7 +75,6 @@ class CategoryVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                             {
                                 
                                 jsonElement = realValueDict[i] as! NSDictionary
-                                print("JOYadrota \(jsonElement.allValues)")
                                 if let name = jsonElement["name"] as? String,let count = jsonElement["count"] as? Int,
                                     let image = jsonElement["image"] as? String {
                                    

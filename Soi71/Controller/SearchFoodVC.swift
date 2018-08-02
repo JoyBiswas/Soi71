@@ -103,7 +103,10 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
             
             self.menuNameTV.text = menu?.menuName
             self.categoryLbl.text = menu?.menuCategory
-            self.menuPriceLbl.text = "$\(String(describing: menu?.menuPrice))"
+            if let price = menu?.menuPrice {
+                self.menuPriceLbl.text = "$\(price)"
+            }
+            
             self.manuBtn()
             
         }else {
@@ -167,7 +170,7 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
                 
                 var jsonResult = NSDictionary()
                 do{
-                    jsonResult = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! NSDictionary;                    print("hisss\(jsonResult)")
+                    jsonResult = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! NSDictionary;                    
                     
                     var jsonElement = NSDictionary()
                     
@@ -180,7 +183,7 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
                             {
                                 
                                 jsonElement = realValueDict[i] as! NSDictionary
-                                print("JOYadrota \(jsonElement.allValues)")
+                                
                                 if let name = jsonElement["title"] as? String,
                                     let regular_price = jsonElement["regular_price"] as? String,
                                     let categories = jsonElement["categories"] as? [String],
@@ -341,6 +344,10 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
     @IBAction func cancelPopup(_ sender: Any) {
         self.popupView.isHidden = true
     }
+    @IBAction func backButtonPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     
 }
 extension UIColor {
