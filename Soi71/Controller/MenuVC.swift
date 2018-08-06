@@ -119,6 +119,7 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextF
                                 jsonElement = realValueDict[i] as! NSDictionary
                                 
                                 if let name = jsonElement["title"] as? String,
+                                    let id = jsonElement["id"] as? Int,
                                     let regular_price = jsonElement["regular_price"] as? String,
                                     let categories = jsonElement["categories"] as? [String],
                                     let image = jsonElement["images"] as? [[String:Any]]{
@@ -126,7 +127,7 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextF
                                     if let img = image.first {
                                         
                                         if let cate = categories.first {
-                                            let aMenu = MenuModel(menuImage: img["src"] as! String, menuName: name, menuPrice: regular_price, menuCategory: cate)
+                                            let aMenu = MenuModel(menuImage: img["src"] as! String, menuName: name, menuPrice: regular_price, menuCategory: cate, menuId: id)
                                             self.menu.append(aMenu)
                                             
                                         }
@@ -239,6 +240,7 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextF
                 vc.menuCategory = menu?.menuCategory
                 vc.menuPrice = menu?.menuPrice
                 vc.imageString = menu?.menuImage
+                vc.menuId = menu?.menuId
               
             }else {
                 
@@ -248,6 +250,7 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextF
                 vc.menuCategory = menu.menuCategory
                 vc.menuPrice = menu.menuPrice
                 vc.imageString = menu.menuImage
+                vc.menuId = menu.menuId
             }
 
         }

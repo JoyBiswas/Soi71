@@ -8,11 +8,11 @@
 
 import Foundation
 class MenuModel {
-    
     private var _menuImage:String!
     private var _menuName:String!
     private var _menuPrice:String!
     private var _menuCategory:String!
+    private var _menuId:Int
     
     
     var menuImage:String {
@@ -30,15 +30,19 @@ class MenuModel {
         
         return _menuCategory
     }
+    var menuId:Int {
+        
+        return _menuId
+    }
     
-    init(menuImage:String,menuName:String,menuPrice:String,menuCategory:String) {
+    init(menuImage:String,menuName:String,menuPrice:String,menuCategory:String,menuId:Int) {
         
         
         self._menuImage = menuImage
         self._menuName = menuName
         self._menuPrice = menuPrice
         self._menuCategory = menuCategory
+        self._menuId = menuId
     }
-    
     
 }

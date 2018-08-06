@@ -1831,7 +1831,7 @@
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="1800.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p0r-yb-WrU">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="00.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p0r-yb-WrU">
                                                                 <rect key="frame" x="60" y="0.0" width="122" height="30"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1877,13 +1877,13 @@
                                                                                 <state key="normal" image="elips.png"/>
                                                                             </button>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="  Flat rate:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGS-HJ-VYL">
-                                                                                <rect key="frame" x="12" y="0.0" width="98.5" height="12"/>
+                                                                                <rect key="frame" x="12" y="0.0" width="103" height="12"/>
                                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="8"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 100.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykJ-9n-Odq">
-                                                                                <rect key="frame" x="110.5" y="0.0" width="31.5" height="12"/>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 00.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykJ-9n-Odq">
+                                                                                <rect key="frame" x="115" y="0.0" width="27" height="12"/>
                                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="8"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
@@ -1943,7 +1943,7 @@
                                                         <rect key="frame" x="0.0" y="88" width="182" height="12"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Vat(15%)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DMk-wR-m5U">
-                                                                <rect key="frame" x="0.0" y="0.0" width="147" height="12"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="159" height="12"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="GhK-5N-pEX"/>
                                                                 </constraints>
@@ -1951,8 +1951,8 @@
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1,800.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeV-vq-0lp">
-                                                                <rect key="frame" x="147" y="0.0" width="35" height="12"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeV-vq-0lp">
+                                                                <rect key="frame" x="159" y="0.0" width="23" height="12"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -1971,7 +1971,7 @@
                                                         <rect key="frame" x="0.0" y="115" width="182" height="12"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Total" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8g-lA-FLf">
-                                                                <rect key="frame" x="0.0" y="0.0" width="147" height="12"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="159" height="12"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="Mra-bd-dew"/>
                                                                 </constraints>
@@ -1979,8 +1979,8 @@
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1,800.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8b-ca-mdT">
-                                                                <rect key="frame" x="147" y="0.0" width="35" height="12"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8b-ca-mdT">
+                                                                <rect key="frame" x="159" y="0.0" width="23" height="12"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -2130,7 +2130,11 @@
                         <viewLayoutGuide key="safeArea" id="BfT-vH-VTN"/>
                     </view>
                     <connections>
+                        <outlet property="cartSubTotal" destination="p0r-yb-WrU" id="qgq-Bt-MSK"/>
                         <outlet property="cartTable" destination="cgT-TN-vqv" id="yR5-gt-YA7"/>
+                        <outlet property="cartTotal" destination="l8b-ca-mdT" id="ulg-vd-tKS"/>
+                        <outlet property="shippingTotal" destination="ykJ-9n-Odq" id="dy2-Tm-y9E"/>
+                        <outlet property="vatLabel" destination="jeV-vq-0lp" id="OPw-Na-Due"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OJv-ak-u5f" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2160,10 +2164,9 @@
         <image name="sponIcon.png" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xZy-5X-MSE"/>
         <segue reference="ma4-jZ-aPf"/>
-        <segue reference="IVb-Vv-kKc"/>
-        <segue reference="gyC-Xz-UvK"/>
-        <segue reference="2zT-Ny-GbX"/>
+        <segue reference="B8N-04-Kj8"/>
+        <segue reference="tek-5o-bNA"/>
+        <segue reference="rXS-oL-fGG"/>
     </inferredMetricsTieBreakers>
 </document>

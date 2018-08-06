@@ -17,6 +17,7 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
     
     @IBOutlet weak var popupImageView: UIImageView!
     @IBOutlet weak var searchTextField: UITextField!
+    var menuId:Int!
     
     
     //PopUp section
@@ -106,6 +107,7 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
             if let price = menu?.menuPrice {
                 self.menuPriceLbl.text = "$\(price)"
             }
+            self.menuId = menu?.menuId
             
             self.manuBtn()
             
@@ -119,6 +121,7 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
             self.menuNameTV.text = menu.menuName
             self.categoryLbl.text = menu.menuCategory
             self.menuPriceLbl.text = "$\(menu.menuPrice)"
+            self.menuId = menu.menuId
             self.manuBtn()
         }
         
@@ -185,6 +188,7 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
                                 jsonElement = realValueDict[i] as! NSDictionary
                                 
                                 if let name = jsonElement["title"] as? String,
+                                    let id = jsonElement["id"] as? Int,
                                     let regular_price = jsonElement["regular_price"] as? String,
                                     let categories = jsonElement["categories"] as? [String],
                                     let image = jsonElement["images"] as? [[String:Any]]{
@@ -192,7 +196,7 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
                                     if let img = image.first {
                                         
                                         if let cate = categories.first {
-                                            let aMenu = SearchProductModel(menuImage: img["src"] as! String, menuName: name, menuPrice: regular_price, menuCategory: cate)
+                                            let aMenu = SearchProductModel(menuImage: img["src"] as! String, menuName: name, menuPrice: regular_price, menuCategory: cate, menuId: id)
                                             self.menu.append(aMenu)
                                             
                                         }
@@ -337,6 +341,58 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
     }
     
     @IBAction func addToChartTapped(_ sender: Any) {
+        
+
+        if let count = Int(self.orderCountTextLbl.text!){
+        let parameters: [String: Any] = ["product_id": self.menuId!,"quantity": count]
+                
+        
+        let session = URLSession.shared
+            
+        
+        var request = URLRequest(url: URL(string:"https://arifgroupint.com/test/wp-json/wc/v2/cart/add")!)
+        request.httpMethod = "POST" //set http method as POST
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to nsdata object and set it as request body
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+        
+        
+        //create dataTask using the session object to send data to the server
+        let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+            
+            guard error == nil else {
+                return
+            }
+            
+            guard let data = data else {
+                return
+            }
+            let nsstr = NSString(data: data , encoding: String.Encoding.utf8.rawValue)
+            print("JOUUU\(nsstr!)")
+            
+            do {
+                
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                    
+                    // handle json...
+                    print(json)
+                }
+            }
+            catch let error {
+                print(error.localizedDescription)
+            }
+            
+        })
+        task.resume()
+
+        }
+        
     }
     
     
@@ -348,6 +404,7 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
         dismiss(animated: true, completion: nil)
     }
     
+
     
 }
 extension UIColor {
