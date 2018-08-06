@@ -20,9 +20,11 @@ class ChartVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var shippingTotal: UILabel!
     
+    var aCartList = [CartModel]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.cartT()
+        self.cartList()
         self.cartTotalCall()
         self.cartTable.reloadData()
     }
@@ -33,16 +35,25 @@ class ChartVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return aCartList.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = cartTable.dequeueReusableCell(withIdentifier: "CCELL") as? CartTableCell {
-            cell.productImage.image = #imageLiteral(resourceName: "bg.jpg")
-            cell.productName.text = "S1.01-kjdkskjdksjdkjjcsc"
-            cell.productPrice.text = "$1250"
-            cell.productQnt.text = "3"
-            cell.productTotalPrice.text = "$7550"
+            
+            let cart = aCartList[indexPath.row]
+//            cell.productImage.image = #imageLiteral(resourceName: "bg.jpg")
+//            cell.productName.text = "S1.01-kjdkskjdksjdkjjcsc"
+//            cell.productPrice.text = "$1250"
+//            cell.productQnt.text = "3"
+//            cell.productTotalPrice.text = "$7550"
+            
+            
+            
+//            cell.productName.text = cart.productName
+//            cell.productTotalPrice.text = "$\(cart.productTotalPrice)"
+//            cell.productQnt.text = "\(cart.productQuantity)"
+            cell.configureCell(cart: cart)
             return cell
             
         }else {
@@ -99,7 +110,7 @@ class ChartVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             }.resume()
         
     }
-    func cartT(){
+    func cartList(){
         
         
         
@@ -132,13 +143,23 @@ class ChartVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                         if let product_id = jsonElement["product_id"] as? Int,
                             let product_name = jsonElement["product_name"] as? String,
                             let quantity = jsonElement["quantity"] as? Int,
-                            let key = jsonElement["key"] as? String
+                            let key = jsonElement["key"] as? String,
+                            let productPrice = jsonElement["line_total"] as? Int
                             {
                             
-                                print("Holo ki",product_id,product_name,quantity,key)
+                                print("Holo ki",product_id,product_name,quantity,key,productPrice)
+                                
+                                let aCart = CartModel(productId: product_id, productName: product_name, productKey: key, productQuantity: quantity, productTotalPrice: productPrice)
+                                
+                                self.aCartList.append(aCart)
                             
                             
                         }
+                        DispatchQueue.main.async(execute: {
+                            self.cartTable.reloadData()
+                            
+                        })
+
                     }
                     
                 }catch let error as NSError{

@@ -52,6 +52,7 @@ class SoiHomeVC: UIViewController,GIDSignInUIDelegate{
        
        // self.mostDownload()
         
+        
     }
 
     
@@ -155,6 +156,10 @@ class SoiHomeVC: UIViewController,GIDSignInUIDelegate{
         GIDSignIn.sharedInstance().signIn()
         
     }
+    
+    
+
+    
     func aHttpReq() {
         
         let parameters: [String: Any] = [
