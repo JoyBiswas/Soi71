@@ -21,15 +21,16 @@ class ChartVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var shippingTotal: UILabel!
     
     var aCartList = [CartModel]()
+    var selectedIndexPath: NSIndexPath = NSIndexPath()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.cartList()
         self.cartTotalCall()
-        self.cartTable.reloadData()
+        
     }
-
-   
+    
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
@@ -42,17 +43,17 @@ class ChartVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         if let cell = cartTable.dequeueReusableCell(withIdentifier: "CCELL") as? CartTableCell {
             
             let cart = aCartList[indexPath.row]
-//            cell.productImage.image = #imageLiteral(resourceName: "bg.jpg")
-//            cell.productName.text = "S1.01-kjdkskjdksjdkjjcsc"
-//            cell.productPrice.text = "$1250"
-//            cell.productQnt.text = "3"
-//            cell.productTotalPrice.text = "$7550"
+            //            cell.productImage.image = #imageLiteral(resourceName: "bg.jpg")
+            //            cell.productName.text = "S1.01-kjdkskjdksjdkjjcsc"
+            //            cell.productPrice.text = "$1250"
+            //            cell.productQnt.text = "3"
+            //            cell.productTotalPrice.text = "$7550"
             
             
             
-//            cell.productName.text = cart.productName
-//            cell.productTotalPrice.text = "$\(cart.productTotalPrice)"
-//            cell.productQnt.text = "\(cart.productQuantity)"
+            //            cell.productName.text = cart.productName
+            //            cell.productTotalPrice.text = "$\(cart.productTotalPrice)"
+            //            cell.productQnt.text = "\(cart.productQuantity)"
             cell.configureCell(cart: cart)
             return cell
             
@@ -92,16 +93,16 @@ class ChartVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                         let shipping_total = jsonResult["shipping_total"] as? String,
                         let total = jsonResult["total"] as? String
                         
-                        {
-                            DispatchQueue.main.async(execute: {
-                                self.cartSubTotal.text = "$\(subtotal)"
-                                self.cartTotal.text = "$\(total)"
-                                self.shippingTotal.text = "$\(shipping_total)"
-                            })
-                            
-                            
+                    {
+                        DispatchQueue.main.async(execute: {
+                            self.cartSubTotal.text = "$\(subtotal)"
+                            self.cartTotal.text = "$\(total)"
+                            self.shippingTotal.text = "$\(shipping_total)"
+                        })
                         
-                        }
+                        
+                        
+                    }
                     
                 }catch let error as NSError{
                     print(error)
@@ -134,24 +135,24 @@ class ChartVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                     jsonResult = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! NSDictionary;
                     
                     var jsonElement = NSDictionary()
+                    self.aCartList.removeAll()
                     
                     for (_,value) in jsonResult {
                         
                         jsonElement = value as! NSDictionary
-                        print("lolo\(jsonElement)")
+                        
                         
                         if let product_id = jsonElement["product_id"] as? Int,
                             let product_name = jsonElement["product_name"] as? String,
                             let quantity = jsonElement["quantity"] as? Int,
                             let key = jsonElement["key"] as? String,
                             let productPrice = jsonElement["line_total"] as? Int
-                            {
+                        {
                             
-                                print("Holo ki",product_id,product_name,quantity,key,productPrice)
-                                
-                                let aCart = CartModel(productId: product_id, productName: product_name, productKey: key, productQuantity: quantity, productTotalPrice: productPrice)
-                                
-                                self.aCartList.append(aCart)
+                            
+                            let aCart = CartModel(productId: product_id, productName: product_name, productKey: key, productQuantity: quantity, productTotalPrice: productPrice)
+                            
+                            self.aCartList.append(aCart)
                             
                             
                         }
@@ -159,7 +160,7 @@ class ChartVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                             self.cartTable.reloadData()
                             
                         })
-
+                        
                     }
                     
                 }catch let error as NSError{
@@ -169,8 +170,87 @@ class ChartVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             }.resume()
         
     }
+    
+//    curl -X DELETE https://example.com/wp-json/wc/v2/cart/cart-item \
+//    -H "Content-Type: application/json" \
+//    -d '{
+//    "cart_item_key": 404dcc91b2aeaa7caa47487d1483e48a
+//}'
+//
+    
+    @IBAction func removeAItemFromCart(_ sender: Any) {
+        let buttonPosition:CGPoint = (sender as AnyObject).convert(CGPoint.zero, to: self.cartTable)
+        if let indexPath = self.cartTable.indexPathForRow(at: buttonPosition) {
+            self.selectedIndexPath = indexPath as NSIndexPath
+            let aItem = self.aCartList[indexPath.row]
+            
+            if  aItem.productKey != "" {
+                let item = aItem.productKey
+            let parameters: [String: Any] = ["cart_item_key":item]
+            
+            
+            let session = URLSession.shared
+            
+            
+            var request = URLRequest(url: URL(string:"https://arifgroupint.com/test/wp-json/wc/v2/cart/cart-item")!)
+            request.httpMethod = "DELETE" //set http method as POST
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            
+            do {
+                request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to nsdata object and set it as request body
+            } catch let error {
+                print(error.localizedDescription)
+            }
+            
+            
+            
+            //create dataTask using the session object to send data to the server
+            let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+                
+                guard error == nil else {
+                    return
+                }
+                
+                guard let data = data else {
+                    return
+                }
+                let nsstr = NSString(data: data , encoding: String.Encoding.utf8.rawValue)
+                let alertController = UIAlertController(title: aItem.productName, message: nsstr as String?, preferredStyle: .alert)
+                
+                
+                alertController.view.backgroundColor = UIColor.green// change background color
+                alertController.view.layer.cornerRadius = 50
+                let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: { (_) in
+                    
+                    
+                })
+                alertController.addAction(confirmAction)
+                
+                self.present(alertController, animated: true, completion: nil)
+                DispatchQueue.main.async(execute: {
+                    self.cartList()
+                    self.cartTotalCall()
+                    
+                })
 
- 
+                
+              
+                
+            })
+                
+            task.resume()
+            
+            
+            
+        }
+            
+        }
+        
+        
+    }
+    
+    
     @IBAction func backButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

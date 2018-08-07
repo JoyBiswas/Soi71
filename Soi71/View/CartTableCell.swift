@@ -37,7 +37,7 @@ class CartTableCell: UITableViewCell {
         
         
         
-      
+        
     }
     
     
@@ -52,20 +52,19 @@ class CartTableCell: UITableViewCell {
             
             DispatchQueue.main.async() {
                 self.productImage.image = UIImage(data: data)
-                self.productPrice.text = price
+                self.productPrice.text = "$\(price)"
             }
         }
     }
     
-
     
     
-  
+    
+    
     func productById(id:Int) {
         
         var request = URLRequest(url: URL(string:"https://arifgroupint.com/test/wc-api/v3/products/"+String(id)+"?consumer_key=ck_d7980b18f40501ebcfe221280a9234e6d11489a1&consumer_secret=cs_f9b4f19bbfdec5464af4596e41787e86741ed973")!)
-        
-        //  let parameters = ["category": "hoodies"] as [String : String]
+       
         request.httpMethod = "GET"
         request.addValue("application/javascript", forHTTPHeaderField: "Content-Type")
         request.addValue("application/javascript", forHTTPHeaderField: "Accept")
@@ -74,7 +73,6 @@ class CartTableCell: UITableViewCell {
         let session = URLSession.shared
         
         session.dataTask(with: request) {data, response, err in
-            print("Entered the completionHandler")
             
             if(err != nil){
                 print("error")
@@ -89,7 +87,7 @@ class CartTableCell: UITableViewCell {
                     for (_,value) in jsonResult {
                         
                         jsonElement = value as! NSDictionary
-                        print("humtum",jsonElement)
+                        
                         
                         if let regular_price = jsonElement["regular_price"] as? String,
                             let _ = jsonElement["categories"] as? [String],
@@ -107,10 +105,6 @@ class CartTableCell: UITableViewCell {
                         
                     }
                     
-                    // if let productPrice = jsonResult["regular_price"] as? String {
-                    
-                    
-                    // }
                     
                     
                     
@@ -128,7 +122,7 @@ class CartTableCell: UITableViewCell {
         qntView.layer.masksToBounds = true
         
     }
-
-
-
+    
+    
+    
 }

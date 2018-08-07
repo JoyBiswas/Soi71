@@ -1496,7 +1496,7 @@
         <!--ChartVC-->
         <scene sceneID="5fi-6I-g6X">
             <objects>
-                <viewController modalTransitionStyle="partialCurl" id="D26-Og-x5C" customClass="ChartVC" customModule="Soi71" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="D26-Og-x5C" customClass="ChartVC" customModule="Soi71" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kpm-Xn-F63">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1663,6 +1663,9 @@
                                                                                             <state key="normal" image="cross.png">
                                                                                                 <color key="titleColor" red="1" green="0.15990819105416965" blue="0.3411537351054279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                             </state>
+                                                                                            <connections>
+                                                                                                <action selector="removeAItemFromCart:" destination="D26-Og-x5C" eventType="touchUpInside" id="S5Y-aR-Rve"/>
+                                                                                            </connections>
                                                                                         </button>
                                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="uA7-P2-mny">
                                                                                             <rect key="frame" x="25" y="0.0" width="40" height="71"/>
@@ -1789,7 +1792,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="55" id="pAD-6g-8tC"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="9"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="7"/>
                                                 <color key="textColor" red="0.99990516900000004" green="1" blue="0.99987047910000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -1800,18 +1803,19 @@
                                                     <constraint firstAttribute="width" constant="68" id="a1I-jd-Q7a"/>
                                                     <constraint firstAttribute="height" constant="16" id="bmL-hq-5nU"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Roboto-Black" family="Roboto" pointSize="11"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Black" family="Roboto" pointSize="9"/>
                                                 <state key="normal" title="Apply coupon">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RHe-Tb-lAx" customClass="FancyBtn" customModule="Soi71" customModuleProvider="target">
-                                                <rect key="frame" x="297" y="194" width="58" height="16"/>
+                                                <rect key="frame" x="300" y="194" width="55" height="16"/>
                                                 <color key="backgroundColor" red="0.0" green="0.47058823529411764" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="16" id="Eya-MT-Vra"/>
+                                                    <constraint firstAttribute="width" constant="55" id="avh-Eu-XNf"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Roboto-Black" family="Roboto" pointSize="11"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Black" family="Roboto" pointSize="9"/>
                                                 <state key="normal" title="Update cart">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -2164,7 +2168,7 @@
         <image name="sponIcon.png" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ma4-jZ-aPf"/>
+        <segue reference="dXi-WY-U9h"/>
         <segue reference="B8N-04-Kj8"/>
         <segue reference="tek-5o-bNA"/>
         <segue reference="rXS-oL-fGG"/>
