@@ -9,7 +9,7 @@
 import UIKit
 
 class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UIGestureRecognizerDelegate,UITextFieldDelegate{
-    
+    var boxView = UIView()
     
     @IBOutlet weak var popupView: UIView!
     
@@ -43,7 +43,11 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.mostDownload()
+        
+        DispatchQueue.main.async() {
+            self.mostDownload()
+        }
+        
         searchTextField.delegate = self
       
        self.popupView.isHidden = true
@@ -154,7 +158,7 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
     
     func mostDownload() {
         
-        var request = URLRequest(url: URL(string:"https://arifgroupint.com/test/wc-api/v3/products?consumer_key=ck_d7980b18f40501ebcfe221280a9234e6d11489a1&consumer_secret=cs_f9b4f19bbfdec5464af4596e41787e86741ed973")!)
+        var request = URLRequest(url: URL(string:"\(urlLink)"+"/wc-api/v3/products?"+"\(consumerKey_Sec)")!)
         
         //  let parameters = ["category": "hoodies"] as [String : String]
         request.httpMethod = "GET"
@@ -282,6 +286,7 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
             button.addTarget(self, action: #selector(self.tapBlurButton(_:)), for: .touchUpInside)
             
           button.clipsToBounds = true
+            button.alpha = 0.50
             button.isUserInteractionEnabled = true
             
             self.popupView.addSubview(button)
@@ -329,7 +334,28 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
     }
 
     // popUp section action
-    
+    func addSavingPhotoView() {
+        // You only need to adjust this frame to move it anywhere you want
+        boxView = UIView(frame: CGRect(x: view.frame.midX - 90, y: view.frame.midY - 25, width: 180, height: 50))
+        boxView.backgroundColor = UIColor.white
+        boxView.alpha = 0.8
+        boxView.layer.cornerRadius = 10
+        
+        //Here the spinnier is initialized
+        let activityView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+        activityView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        activityView.startAnimating()
+        
+        let textLabel = UILabel(frame: CGRect(x: 60, y: 0, width: 200, height: 50))
+        textLabel.backgroundColor = UIColor.black
+        textLabel.textColor = UIColor.white
+        textLabel.text = "Adding To Cart"
+        
+        boxView.addSubview(activityView)
+        boxView.addSubview(textLabel)
+        
+        view.addSubview(boxView)
+    }
     
     @IBAction func plusButtonForCount(_ sender: Any) {
         
@@ -342,24 +368,28 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
     
     @IBAction func addToChartTapped(_ sender: Any) {
         
-
+        self.addSavingPhotoView()
         if let count = Int(self.orderCountTextLbl.text!){
         let parameters: [String: Any] = ["product_id": self.menuId!,"quantity": count]
                 
         
         let session = URLSession.shared
             
+           
+            
         
-        var request = URLRequest(url: URL(string:"https://arifgroupint.com/test/wp-json/wc/v2/cart/add")!)
+        var request = URLRequest(url: URL(string:"\(urlLink)"+"/wp-json/wc/v2/cart/add")!)
         request.httpMethod = "POST" //set http method as POST
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.addValue("application/json", forHTTPHeaderField: "Accept")
+          
+                do {
+                    request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to nsdata object and set it as request body
+                } catch let error {
+                    print(error.localizedDescription)
+                }
+                
         
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to nsdata object and set it as request body
-        } catch let error {
-            print(error.localizedDescription)
-        }
         
         
         
@@ -373,15 +403,25 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
             guard let data = data else {
                 return
             }
-            let nsstr = NSString(data: data , encoding: String.Encoding.utf8.rawValue)
-            print("JOUUU\(nsstr!)")
+            _ = NSString(data: data , encoding: String.Encoding.utf8.rawValue)
+            
             
             do {
                 
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                if (try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any]) != nil {
                     
-                    // handle json...
-                    print(json)
+                    let alertController = UIAlertController(title: "-^-", message: "Product Added To The Cart", preferredStyle: .alert)
+                    
+                    
+                    alertController.view.backgroundColor = UIColor.green// change background color
+                    alertController.view.layer.cornerRadius = 50
+                    let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: { (_) in
+                        self.boxView.removeFromSuperview()
+                        
+                    })
+                    alertController.addAction(confirmAction)
+                    
+                    self.present(alertController, animated: true, completion: nil)
                 }
             }
             catch let error {

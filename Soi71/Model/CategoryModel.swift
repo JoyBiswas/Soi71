@@ -13,6 +13,7 @@ class CategoryModel {
     private var _categoryImage:String!
     private var _categoryName:String!
     private var _categoryCount:Int!
+    private var _categoryId:Int!
     
     
     var categoryImage:String {
@@ -26,13 +27,17 @@ class CategoryModel {
     var cateroryCount:Int {
         return _categoryCount
     }
+    var categoryId:Int {
+        return _categoryId
+    }
     
-    init(categoryImage:String,categoryName:String,categoryCount:Int) {
+    init(categoryImage:String,categoryName:String,categoryCount:Int,categoryId:Int) {
         
         
         self._categoryImage = categoryImage
         self._categoryName = categoryName
         self._categoryCount = categoryCount
+        self._categoryId = categoryId
     }
     
 }

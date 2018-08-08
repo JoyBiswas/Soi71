@@ -85,7 +85,7 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextF
     }
     func mostDownload() {
         
-        var request = URLRequest(url: URL(string:"https://arifgroupint.com/test/wc-api/v3/products?consumer_key=ck_d7980b18f40501ebcfe221280a9234e6d11489a1&consumer_secret=cs_f9b4f19bbfdec5464af4596e41787e86741ed973")!)
+        var request = URLRequest(url: URL(string:"\(urlLink)"+"/wc-api/v3/products?"+"\(consumerKey_Sec)")!)
         
         //  let parameters = ["category": "hoodies"] as [String : String]
         request.httpMethod = "GET"

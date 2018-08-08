@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class CategoryVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var categoryTable: UITableView!
@@ -41,9 +43,52 @@ class CategoryVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
         return 50.0
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let cat = category[indexPath.row]
+        
+//
+//        https://mysite.com/wc-api/v1/products?filter[categories]=gedgets&consumer_key=ck_9354534x&consumer_secret=cs_dx7345345
+
+        
+        var request = URLRequest(url: URL(string:"\(urlLink)"+"/wc-api/v1/products?"+"[\(cat.categoryName)]"+"=gedgets&"+"\(consumerKey_Sec)")!)
+        
+        //  let parameters = ["category": "hoodies"] as [String : String]
+        request.httpMethod = "GET"
+        request.addValue("application/javascript", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/javascript", forHTTPHeaderField: "Accept")
+        
+        
+        let session = URLSession.shared
+        
+        session.dataTask(with: request) {data, response, err in
+            print("Entered the completionHandler")
+            
+            if(err != nil){
+                print("error")
+            }else{
+                
+                var jsonResult = NSDictionary()
+                do{
+                    jsonResult = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! NSDictionary;
+                    print("Omg",jsonResult)
+                    var jsonElement = NSDictionary()
+                    
+                
+                        
+                        
+                        
+                        
+                    }
+                catch let error as NSError{
+                    print(error)
+                }
+            }
+            }.resume()
+    }
     func mostDownload() {
         
-        var request = URLRequest(url: URL(string:"https://arifgroupint.com/test/wc-api/v3/products/categories?consumer_key=ck_d7980b18f40501ebcfe221280a9234e6d11489a1&consumer_secret=cs_f9b4f19bbfdec5464af4596e41787e86741ed973")!)
+        var request = URLRequest(url: URL(string:"\(urlLink)"+"/wc-api/v3/products/categories?"+"\(consumerKey_Sec)")!)
         
         //  let parameters = ["category": "hoodies"] as [String : String]
         request.httpMethod = "GET"
@@ -76,11 +121,13 @@ class CategoryVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                                 
                                 jsonElement = realValueDict[i] as! NSDictionary
                                 if let name = jsonElement["name"] as? String,let count = jsonElement["count"] as? Int,
-                                    let image = jsonElement["image"] as? String {
+                                    let image = jsonElement["image"] as? String,
+                                    let catId = jsonElement["id"] as? Int
+                                {
                                    
                                     print("cjoy",name,image,count)
                                     
-                                    let aCategory = CategoryModel(categoryImage: image, categoryName: name, categoryCount: count)
+                                    let aCategory = CategoryModel(categoryImage: image, categoryName: name, categoryCount: count, categoryId: catId)
                                     self.category.append(aCategory)
                                     
                                     

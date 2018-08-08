@@ -11,6 +11,10 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import GoogleSignIn
 
+//var urlLink = "https://arifgroupint.com/test"
+//var consumerKey_Sec = "consumer_key=ck_d7980b18f40501ebcfe221280a9234e6d11489a1&consumer_secret=cs_f9b4f19bbfdec5464af4596e41787e86741ed973"
+var urlLink = "https://www.soi71.net"
+var consumerKey_Sec = "consumer_key=ck_319a58778476ba218f1d94f16e9e6546bc77e82e&consumer_secret=cs_0c982749c30e6133346a4d564038d69cdcae75b5"
 
 
 class SoiHomeVC: UIViewController,GIDSignInUIDelegate{

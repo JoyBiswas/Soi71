@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class CartTableCell: UITableViewCell {
     
     @IBOutlet weak var productImage: UIImageView!
@@ -63,7 +64,7 @@ class CartTableCell: UITableViewCell {
     
     func productById(id:Int) {
         
-        var request = URLRequest(url: URL(string:"https://arifgroupint.com/test/wc-api/v3/products/"+String(id)+"?consumer_key=ck_d7980b18f40501ebcfe221280a9234e6d11489a1&consumer_secret=cs_f9b4f19bbfdec5464af4596e41787e86741ed973")!)
+        var request = URLRequest(url: URL(string:"\(urlLink)"+"/wc-api/v3/products/"+String(id)+"?"+"\(consumerKey_Sec)")!)
        
         request.httpMethod = "GET"
         request.addValue("application/javascript", forHTTPHeaderField: "Content-Type")

@@ -14,6 +14,7 @@ class MenuDetailsVC: UIViewController {
     var menuCategory:String!
     var imageString:String!
     var menuId:Int!
+     var boxView = UIView()
     
     @IBOutlet weak var menuImageView: UIImageView!
     
@@ -68,8 +69,32 @@ class MenuDetailsVC: UIViewController {
     @IBAction func minusButtonCount(_ sender: Any) {
          self.orderCountTextLbl.text = String(Int(self.orderCountTextLbl.text!)!-1)
     }
+    // popUp section action
+    func addSavingPhotoView() {
+        // You only need to adjust this frame to move it anywhere you want
+        boxView = UIView(frame: CGRect(x: view.frame.midX - 90, y: view.frame.midY - 25, width: 180, height: 50))
+        boxView.backgroundColor = UIColor.white
+        boxView.alpha = 0.8
+        boxView.layer.cornerRadius = 10
+        
+        //Here the spinnier is initialized
+        let activityView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+        activityView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        activityView.startAnimating()
+        
+        let textLabel = UILabel(frame: CGRect(x: 60, y: 0, width: 200, height: 50))
+        textLabel.backgroundColor = UIColor.black
+        textLabel.textColor = UIColor.white
+        textLabel.text = "Adding To Cart"
+        boxView.addSubview(activityView)
+        boxView.addSubview(textLabel)
+        
+        view.addSubview(boxView)
+    }
+
     
     @IBAction func addToChartTapped(_ sender: Any) {
+        self.addSavingPhotoView()
         if let count = Int(self.orderCountTextLbl.text!){
             let parameters: [String: Any] = ["product_id": self.menuId!,"quantity": count]
             
@@ -77,7 +102,7 @@ class MenuDetailsVC: UIViewController {
             let session = URLSession.shared
             
             
-            var request = URLRequest(url: URL(string:"https://arifgroupint.com/test/wp-json/wc/v2/cart/add")!)
+            var request = URLRequest(url: URL(string:"\(urlLink)"+"/wp-json/wc/v2/cart/add")!)
             request.httpMethod = "POST" //set http method as POST
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -100,17 +125,34 @@ class MenuDetailsVC: UIViewController {
                 guard let data = data else {
                     return
                 }
-                let nsstr = NSString(data: data , encoding: String.Encoding.utf8.rawValue)
-                print("JOUUU\(nsstr!)")
-                
+                _ = NSString(data: data , encoding: String.Encoding.utf8.rawValue)
+               
                 do {
                     
-                    if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                    if (try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any]) != nil {
                         
-                        // handle json...
-                        print(json)
+                        let alertController = UIAlertController(title: "Product Added To The Cart", message: "", preferredStyle: .alert)
+                        
+                        
+                        alertController.view.backgroundColor = UIColor.green// change background color
+                        alertController.view.layer.cornerRadius = 50
+                        let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: { (_) in
+                            
+                            self.boxView.removeFromSuperview()
+                            self.dismiss(animated: true, completion: nil)
+                        })
+                        let viewAction = UIAlertAction(title: "View Cart", style: .default, handler: { (_) in
+                            
+                            self.boxView.removeFromSuperview()
+                            self.performSegue(withIdentifier: "toCart", sender: nil)
+                        })
+                        alertController.addAction(confirmAction)
+                        alertController.addAction(viewAction)
+                        
+                        self.present(alertController, animated: true, completion: nil)
                     }
                 }
+
                 catch let error {
                     print(error.localizedDescription)
                 }
