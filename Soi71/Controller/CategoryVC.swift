@@ -11,12 +11,15 @@ import UIKit
 
 
 class CategoryVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
-
+    var boxView = UIView()
     @IBOutlet weak var categoryTable: UITableView!
+    var selectedIndexPath: NSIndexPath = NSIndexPath()
+
     
     var category = [CategoryModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.loading()
         self.categoryTable.reloadData()
         self.mostDownload()
 
@@ -32,7 +35,13 @@ class CategoryVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let category = self.category[indexPath.row]
         if let cell = categoryTable.dequeueReusableCell(withIdentifier: "CCell") as? CategoryTableCell {
+            
+            
             cell.configureCell(category: category, img: nil)
+            let selectedView = UIView()
+            selectedView.layer.cornerRadius = 5.0
+            selectedView.backgroundColor = UIColor(rgb: 0x42B72A)
+            cell.selectedBackgroundView = selectedView
             return cell
             
         }else {
@@ -45,46 +54,59 @@ class CategoryVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let cat = category[indexPath.row]
+        self.selectedIndexPath = indexPath as NSIndexPath
+        self.performSegue(withIdentifier: "toDetails", sender: nil)
         
-//
-//        https://mysite.com/wc-api/v1/products?filter[categories]=gedgets&consumer_key=ck_9354534x&consumer_secret=cs_dx7345345
-
+ 
+    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        var request = URLRequest(url: URL(string:"\(urlLink)"+"/wc-api/v1/products?"+"[\(cat.categoryName)]"+"=gedgets&"+"\(consumerKey_Sec)")!)
-        
-        //  let parameters = ["category": "hoodies"] as [String : String]
-        request.httpMethod = "GET"
-        request.addValue("application/javascript", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/javascript", forHTTPHeaderField: "Accept")
-        
-        
-        let session = URLSession.shared
-        
-        session.dataTask(with: request) {data, response, err in
-            print("Entered the completionHandler")
-            
-            if(err != nil){
-                print("error")
-            }else{
+        self.boxView.removeFromSuperview()
+        if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
+            if indexPath == lastVisibleIndexPath {
                 
-                var jsonResult = NSDictionary()
-                do{
-                    jsonResult = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! NSDictionary;
-                    print("Omg",jsonResult)
-                    var jsonElement = NSDictionary()
-                    
-                
-                        
-                        
-                        
-                        
-                    }
-                catch let error as NSError{
-                    print(error)
-                }
             }
-            }.resume()
+        }
+    }
+    func loading() {
+        // You only need to adjust this frame to move it anywhere you want
+        boxView = UIView(frame: CGRect(x: view.frame.midX - 100, y: view.frame.midY , width: 200, height: 50))
+        boxView.backgroundColor = UIColor.white
+        boxView.alpha = 1.0
+        boxView.layer.cornerRadius = 10
+        
+        //Here the spinnier is initialized
+        let activityView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+        activityView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+       
+        activityView.startAnimating()
+        
+        
+        let textLabel = UILabel(frame: CGRect(x: 60, y: 0, width: 132, height: 50))
+        textLabel.backgroundColor = UIColor.green.withAlphaComponent(0.50)
+        textLabel.textColor = UIColor.white
+        textLabel.textAlignment = .center
+        textLabel.text = "Loading •••"
+        
+        boxView.addSubview(activityView)
+        boxView.addSubview(textLabel)
+        
+        
+        view.addSubview(boxView)
+    }
+    
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let indexpath = self.selectedIndexPath
+        
+       
+        if segue.identifier == "toDetails" {
+            let vc = segue.destination as! SearchFoodVC
+              let cat = category[indexpath.row]
+                vc.categoryName = cat.categoryName
+                vc.catName = true
+            
+        }
     }
     func mostDownload() {
         

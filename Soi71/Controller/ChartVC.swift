@@ -89,9 +89,9 @@ class ChartVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                         
                     {
                         DispatchQueue.main.async(execute: {
-                            self.cartSubTotal.text = "$\(subtotal)"
-                            self.cartTotal.text = "$\(total)"
-                            self.shippingTotal.text = "$\(shipping_total)"
+                            self.cartSubTotal.text = "৳\(subtotal)"
+                            self.cartTotal.text = "৳\(total)"
+                            self.shippingTotal.text = "৳\(shipping_total)"
                         })
                         
                         
@@ -169,7 +169,7 @@ class ChartVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         // You only need to adjust this frame to move it anywhere you want
         boxView = UIView(frame: CGRect(x: view.frame.midX - 90, y: view.frame.midY - 25, width: 180, height: 50))
         boxView.backgroundColor = UIColor.white
-        boxView.alpha = 0.8
+        boxView.alpha = 1.0
         boxView.layer.cornerRadius = 10
         
         //Here the spinnier is initialized
@@ -235,7 +235,7 @@ class ChartVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                     
                     alertController.view.backgroundColor = UIColor.green// change background color
                     alertController.view.layer.cornerRadius = 50
-                    let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: { (_) in
+                    let confirmAction = UIAlertAction(title: "OK", style: .default, handler: { (_) in
                         
                         self.boxView.removeFromSuperview()
                         

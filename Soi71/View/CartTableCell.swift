@@ -32,7 +32,7 @@ class CartTableCell: UITableViewCell {
     func configureCell(cart:CartModel) {
         self.cart = cart
         self.productName.text = cart.productName
-        self.productTotalPrice.text = "$\(cart.productTotalPrice)"
+        self.productTotalPrice.text = "৳\(cart.productTotalPrice)"
         self.productQnt.text = "\(cart.productQuantity)"
         self.productById(id: cart.productId)
         
@@ -53,7 +53,7 @@ class CartTableCell: UITableViewCell {
             
             DispatchQueue.main.async() {
                 self.productImage.image = UIImage(data: data)
-                self.productPrice.text = "$\(price)"
+                self.productPrice.text = "৳\(price)"
             }
         }
     }

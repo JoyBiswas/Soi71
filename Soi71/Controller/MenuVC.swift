@@ -15,6 +15,7 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextF
     @IBOutlet weak var searchTextFieldImage: UIImageView!
     var inSearchMode = false
     var showSearch = false
+    var boxView = UIView()
     
     @IBOutlet weak var menuSearchBtn: UIButton!
     
@@ -27,7 +28,7 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextF
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+         self.loading()
         self.searchTextField.isHidden = true
         self.searchTextFieldImage.isHidden = true
         self.menuListTable.reloadData()
@@ -83,6 +84,42 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextF
         
         return 101.0
     }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        self.boxView.removeFromSuperview()
+        if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
+            if indexPath == lastVisibleIndexPath {
+                
+            }
+        }
+    }
+    func loading() {
+        // You only need to adjust this frame to move it anywhere you want
+        boxView = UIView(frame: CGRect(x: view.frame.midX - 100, y: view.frame.midY , width: 200, height: 50))
+        boxView.backgroundColor = UIColor.white
+        boxView.alpha = 1.0
+        boxView.layer.cornerRadius = 10
+        
+        //Here the spinnier is initialized
+        let activityView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+        activityView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        
+        activityView.startAnimating()
+        
+        
+        let textLabel = UILabel(frame: CGRect(x: 60, y: 0, width: 132, height: 50))
+        textLabel.backgroundColor = UIColor.green.withAlphaComponent(0.50)
+        textLabel.textColor = UIColor.white
+        textLabel.textAlignment = .center
+        textLabel.text = "Loading •••"
+        
+        boxView.addSubview(activityView)
+        boxView.addSubview(textLabel)
+        
+        
+        view.addSubview(boxView)
+    }
+    
     func mostDownload() {
         
         var request = URLRequest(url: URL(string:"\(urlLink)"+"/wc-api/v3/products?"+"\(consumerKey_Sec)")!)

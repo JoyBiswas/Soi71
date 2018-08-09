@@ -11,6 +11,8 @@ import UIKit
 class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,UIGestureRecognizerDelegate,UITextFieldDelegate{
     var boxView = UIView()
     
+    @IBOutlet weak var catNaMeOrTitle: UILabel!
+    
     @IBOutlet weak var popupView: UIView!
     
     @IBOutlet weak var searchProductTable:UITableView!
@@ -18,6 +20,8 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
     @IBOutlet weak var popupImageView: UIImageView!
     @IBOutlet weak var searchTextField: UITextField!
     var menuId:Int!
+    
+    var categoryName:String!
     
     
     //PopUp section
@@ -37,6 +41,7 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
     
     var menu = [SearchProductModel]()
     var filteredObject:[SearchProductModel]?
+    var catName = false
     
     var viewShow = true
     var inSearchMode = false
@@ -44,13 +49,35 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DispatchQueue.main.async() {
-            self.mostDownload()
+        searchTextField.delegate = self
+        
+        self.popupView.isHidden = true
+        self.loading()
+
+        if catName == false {
+            
+            DispatchQueue.main.async() {
+                self.catNaMeOrTitle.text = "SEARCH PRODUCTS"
+                self.mostDownload()
+            }
+        }else {
+            if self.categoryName != "" {
+                DispatchQueue.main.async() {
+                    self.catNaMeOrTitle.text = self.categoryName
+                    self.categoryDetails()
+                }
+            }
         }
         
-        searchTextField.delegate = self
+        
+        
+       
+        
+       
+        
+        
+        
       
-       self.popupView.isHidden = true
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -82,7 +109,7 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
                 
             }
             cell.productName.text = menu.menuName
-            cell.productPrice.text = "$\(menu.menuPrice)"
+            cell.productPrice.text = "৳\(menu.menuPrice)"
             
             let selectedView = UIView()
             selectedView.layer.cornerRadius = 5.0
@@ -109,7 +136,7 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
             self.menuNameTV.text = menu?.menuName
             self.categoryLbl.text = menu?.menuCategory
             if let price = menu?.menuPrice {
-                self.menuPriceLbl.text = "$\(price)"
+                self.menuPriceLbl.text = "৳\(price)"
             }
             self.menuId = menu?.menuId
             
@@ -124,7 +151,7 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
             
             self.menuNameTV.text = menu.menuName
             self.categoryLbl.text = menu.menuCategory
-            self.menuPriceLbl.text = "$\(menu.menuPrice)"
+            self.menuPriceLbl.text = "৳\(menu.menuPrice)"
             self.menuId = menu.menuId
             self.manuBtn()
         }
@@ -136,6 +163,16 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 65.0
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+         self.boxView.removeFromSuperview()
+        if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
+            if indexPath == lastVisibleIndexPath {
+                
+            }
+        }
     }
     
     
@@ -178,7 +215,7 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
                 var jsonResult = NSDictionary()
                 do{
                     jsonResult = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! NSDictionary;                    
-                    
+                   
                     var jsonElement = NSDictionary()
                     
                     for (key,_) in jsonResult
@@ -356,6 +393,35 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
         
         view.addSubview(boxView)
     }
+    func loading() {
+        // You only need to adjust this frame to move it anywhere you want
+        boxView = UIView(frame: CGRect(x: view.frame.midX - 100, y: view.frame.midY , width: 200, height: 50))
+        boxView.backgroundColor = UIColor.white
+        boxView.alpha = 1.0
+        boxView.layer.cornerRadius = 10
+        
+        //Here the spinnier is initialized
+        let activityView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+        activityView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+       
+        
+       
+        activityView.startAnimating()
+        
+        
+        let textLabel = UILabel(frame: CGRect(x: 60, y: 0, width: 132, height: 50))
+        textLabel.backgroundColor = UIColor.green.withAlphaComponent(0.50)
+        textLabel.layer.cornerRadius = 5.0
+        textLabel.textColor = UIColor.white
+        textLabel.textAlignment = .center
+        textLabel.text = "Loading •••"
+        
+        boxView.addSubview(activityView)
+        boxView.addSubview(textLabel)
+        
+        
+        view.addSubview(boxView)
+    }
     
     @IBAction func plusButtonForCount(_ sender: Any) {
         
@@ -410,15 +476,23 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
                 
                 if (try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any]) != nil {
                     
-                    let alertController = UIAlertController(title: "-^-", message: "Product Added To The Cart", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "Product Added To The Cart", message: "", preferredStyle: .alert)
                     
                     
                     alertController.view.backgroundColor = UIColor.green// change background color
                     alertController.view.layer.cornerRadius = 50
-                    let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: { (_) in
+                    let confirmAction = UIAlertAction(title: "Back", style: .default, handler: { (_) in
                         self.boxView.removeFromSuperview()
+                        self.popupView.isHidden = true
                         
                     })
+                    let viewAction = UIAlertAction(title: "View Cart", style: .default, handler: { (_) in
+                        
+                        self.boxView.removeFromSuperview()
+                        self.performSegue(withIdentifier: "toCartto", sender: nil)
+                    })
+                    alertController.addAction(confirmAction)
+                    alertController.addAction(viewAction)
                     alertController.addAction(confirmAction)
                     
                     self.present(alertController, animated: true, completion: nil)
@@ -435,6 +509,86 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
         
     }
     
+    func categoryDetails(){
+        //
+        
+        if  (self.categoryName != nil)  {
+
+            let name = self.categoryName!.replacingOccurrences(of: " ", with: "")
+
+        var request = URLRequest(url: URL(string:"\(urlLink)"+"/wc-api/v1/products?"+"[\(name)]"+"=gedgets&"+"\(consumerKey_Sec)")!)
+        
+        //  let parameters = ["category": "hoodies"] as [String : String]
+        request.httpMethod = "GET"
+        request.addValue("application/javascript", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/javascript", forHTTPHeaderField: "Accept")
+        
+        let session = URLSession.shared
+        
+        session.dataTask(with: request) {data, response, err in
+            print("Entered the completionHandler")
+            
+            if(err != nil){
+                print("error")
+            }else{
+                
+                var jsonResult = NSDictionary()
+                do{
+                    jsonResult = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! NSDictionary;
+                    
+                    var jsonElement = NSDictionary()
+                    
+                    for (key,_) in jsonResult
+                    {
+                        if key as! String == "products" {
+                            
+                            let realValueDict =  jsonResult[key] as! NSArray
+                            for i in 0 ..< realValueDict.count
+                            {
+                                
+                                jsonElement = realValueDict[i] as! NSDictionary
+                                
+                                if let name = jsonElement["title"] as? String,
+                                    let id = jsonElement["id"] as? Int,
+                                    let regular_price = jsonElement["regular_price"] as? String,
+                                    let categories = jsonElement["categories"] as? [String],
+                                    let image = jsonElement["images"] as? [[String:Any]]{
+                                    
+                                    if let img = image.first {
+                                        
+                                        if let cate = categories.first {
+                                            if cate == self.categoryName! {
+                                            let aMenu = SearchProductModel(menuImage: img["src"] as! String, menuName: name, menuPrice: regular_price, menuCategory: cate, menuId: id)
+                                            self.menu.append(aMenu)
+                                            }
+                                        }
+                                    }
+                                    
+                                    
+                                }
+                                
+                                
+                                
+                                DispatchQueue.main.async(execute: {
+                                    self.searchProductTable.reloadData()
+                                    
+                                })
+                                
+                                
+                                
+                            }
+                        }
+                        
+                        
+                        
+                    }
+                }catch let error as NSError{
+                    print(error)
+                }
+            }
+            }.resume()
+        }
+    }
     
     
     @IBAction func cancelPopup(_ sender: Any) {

@@ -28,7 +28,7 @@ class MenuTableCell: UITableViewCell {
     func configureCell(menu:MenuModel ,img:UIImage?) {
         self.menu = menu
         self.menuName.text = menu.menuName
-        self.menuPrice.text = "$\(menu.menuPrice)"
+        self.menuPrice.text = "৳\(menu.menuPrice)"
         
         if let url = URL(string: menu.menuImage) {
             

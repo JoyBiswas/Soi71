@@ -38,7 +38,7 @@ class MenuDetailsVC: UIViewController {
 
             self.downloadImage(url: url!)
             self.menuNameTV.text = self.menuName!
-            self.menuPriceLbl.text = "$\(self.menuPrice!)"
+            self.menuPriceLbl.text = "৳\(self.menuPrice!)"
             self.categoryLbl.text = self.menuCategory!
             self.orderCountTextLbl.text = "3"
         }
@@ -136,7 +136,7 @@ class MenuDetailsVC: UIViewController {
                         
                         alertController.view.backgroundColor = UIColor.green// change background color
                         alertController.view.layer.cornerRadius = 50
-                        let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: { (_) in
+                        let confirmAction = UIAlertAction(title: "Back", style: .default, handler: { (_) in
                             
                             self.boxView.removeFromSuperview()
                             self.dismiss(animated: true, completion: nil)
