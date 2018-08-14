@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class ChartVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var cartTable: UITableView!
@@ -88,6 +90,7 @@ class ChartVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                         let total = jsonResult["total"] as? String
                         
                     {
+                        shi_total = Double(shipping_total)!
                         DispatchQueue.main.async(execute: {
                             self.cartSubTotal.text = "৳\(subtotal)"
                             self.cartTotal.text = "৳\(total)"
@@ -124,14 +127,15 @@ class ChartVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 print("error")
             }else{
                 
-                var jsonResult = NSDictionary()
+                //var jsonResult = NSDictionary()
                 do{
-                    jsonResult = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! NSDictionary;
                     
+                   if let jsonResult = try? JSONSerialization.jsonObject(with: data!, options:[]) as? NSDictionary  {
                     var jsonElement = NSDictionary()
                     self.aCartList.removeAll()
+                    line_items.removeAll()
                     
-                    for (_,value) in jsonResult {
+                    for (_,value) in jsonResult! {
                         
                         jsonElement = value as! NSDictionary
                         
@@ -143,6 +147,9 @@ class ChartVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                             let productPrice = jsonElement["line_total"] as? Int
                         {
                             
+                            let aOrder = ["product_id": product_id,
+                            "quantity": quantity]
+                            line_items.append(aOrder)
                             
                             let aCart = CartModel(productId: product_id, productName: product_name, productKey: key, productQuantity: quantity, productTotalPrice: productPrice)
                             
@@ -156,13 +163,33 @@ class ChartVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                         })
                         
                     }
+
                     
-                }catch let error as NSError{
-                    print(error)
+                        return
+                   }else {
+                    
+                    let alertController = UIAlertController(title:"Your cart is empty.", message: "Please add product to the cart.", preferredStyle: .alert)
+                    
+                    
+                    alertController.view.backgroundColor = UIColor.green// change background color
+                    alertController.view.layer.cornerRadius = 50
+                    let confirmAction = UIAlertAction(title: "OK", style: .default, handler: { (_) in
+                        
+                        
+                        
+                    })
+                    alertController.addAction(confirmAction)
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                    
+                    
+                    }
+                    
+                    
                 }
             }
             }.resume()
-        
+        print("something",line_items)
     }
     // popUp section action
     func addSavingPhotoView() {
@@ -238,19 +265,20 @@ class ChartVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                     let confirmAction = UIAlertAction(title: "OK", style: .default, handler: { (_) in
                         
                         self.boxView.removeFromSuperview()
+                      
+
                         
                     })
                     alertController.addAction(confirmAction)
                     
                     self.present(alertController, animated: true, completion: nil)
+                    
                     DispatchQueue.main.async(execute: {
                         self.cartList()
                         self.cartTotalCall()
-                        self.cartTable.backgroundColor = UIColor.black
+                        
                         
                     })
-                    
-                    
                     
                     
                 })

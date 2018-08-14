@@ -29,18 +29,21 @@ class MenuTableCell: UITableViewCell {
         self.menu = menu
         self.menuName.text = menu.menuName
         self.menuPrice.text = "৳\(menu.menuPrice)"
+//        let imageUrl:URL = URL(string: menu.menuImage )!
+//        let imageData:NSData = NSData(contentsOf: imageUrl)!
+//        self.menuImage.image = UIImage(data: imageData as Data)
         
         if let url = URL(string: menu.menuImage) {
-            
-            
+
+
             if img != nil {
                 self.menuImage.image = img
-                
-                
+
+
             }else {
-                
+
                 self.downloadImage(url: url)
-                
+
             }
         }
     }

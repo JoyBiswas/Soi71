@@ -56,16 +56,16 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
 
         if catName == false {
             
-            DispatchQueue.main.async() {
+           
                 self.catNaMeOrTitle.text = "SEARCH PRODUCTS"
                 self.mostDownload()
-            }
+            
         }else {
             if self.categoryName != "" {
-                DispatchQueue.main.async() {
+                
                     self.catNaMeOrTitle.text = self.categoryName
                     self.categoryDetails()
-                }
+                
             }
         }
         
@@ -213,6 +213,7 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
             }else{
                 
                 var jsonResult = NSDictionary()
+                self.menu.removeAll()
                 do{
                     jsonResult = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! NSDictionary;                    
                    
@@ -247,12 +248,10 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
                                 }
                                 
                                 
-                                
                                 DispatchQueue.main.async(execute: {
                                     self.searchProductTable.reloadData()
                                     
                                 })
-                                
                                 
                                 
                             }
@@ -261,6 +260,9 @@ class SearchFoodVC: UIViewController,UITableViewDataSource,UITableViewDelegate,U
                         
                         
                     }
+                    
+                    
+
                 }catch let error as NSError{
                     print(error)
                 }

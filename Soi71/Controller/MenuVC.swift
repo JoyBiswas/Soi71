@@ -74,6 +74,7 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextF
             
             cell.configureCell(menu: menu, img: nil)
             
+            
             return cell
             
         }else {
@@ -131,68 +132,73 @@ class MenuVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextF
         
         
         let session = URLSession.shared
-        
-        session.dataTask(with: request) {data, response, err in
-            print("Entered the completionHandler")
-            
-            if(err != nil){
-                print("error")
-            }else{
+        DispatchQueue.main.async(execute: {
+            session.dataTask(with: request) {data, response, err in
+                print("Entered the completionHandler")
                 
-                var jsonResult = NSDictionary()
-                do{
-                    jsonResult = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! NSDictionary;                    
+                if(err != nil){
+                    print("error")
+                }else{
                     
-                    var jsonElement = NSDictionary()
-                    
-                    for (key,_) in jsonResult
-                    {
-                        if key as! String == "products" {
-                            
-                            let realValueDict =  jsonResult[key] as! NSArray
-                            for i in 0 ..< realValueDict.count
-                            {
+                    var jsonResult = NSDictionary()
+                    self.menu.removeAll()
+                    do{
+                        jsonResult = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! NSDictionary;
+                        
+                        var jsonElement = NSDictionary()
+                        
+                        for (key,_) in jsonResult
+                        {
+                            if key as! String == "products" {
                                 
-                                jsonElement = realValueDict[i] as! NSDictionary
-                                
-                                if let name = jsonElement["title"] as? String,
-                                    let id = jsonElement["id"] as? Int,
-                                    let regular_price = jsonElement["regular_price"] as? String,
-                                    let categories = jsonElement["categories"] as? [String],
-                                    let image = jsonElement["images"] as? [[String:Any]]{
+                                let realValueDict =  jsonResult[key] as! NSArray
+                                for i in 0 ..< realValueDict.count
+                                {
                                     
-                                    if let img = image.first {
+                                    jsonElement = realValueDict[i] as! NSDictionary
+                                    
+                                    if let name = jsonElement["title"] as? String,
+                                        let id = jsonElement["id"] as? Int,
+                                        let regular_price = jsonElement["regular_price"] as? String,
+                                        let categories = jsonElement["categories"] as? [String],
+                                        let image = jsonElement["images"] as? [[String:Any]]{
                                         
-                                        if let cate = categories.first {
-                                            let aMenu = MenuModel(menuImage: img["src"] as! String, menuName: name, menuPrice: regular_price, menuCategory: cate, menuId: id)
-                                            self.menu.append(aMenu)
+                                        if let img = image.first {
                                             
+                                            if let cate = categories.first {
+                                                let aMenu = MenuModel(menuImage: img["src"] as! String, menuName: name, menuPrice: regular_price, menuCategory: cate, menuId: id)
+                                                self.menu.append(aMenu)
+                                                
+                                            }
                                         }
+                                        
+                                        
                                     }
                                     
                                     
-                                }
-                                
-                                
-                                
-                                DispatchQueue.main.async(execute: {
-                                    self.menuListTable.reloadData()
                                     
-                                })
-
-                                
-                                
+                                    DispatchQueue.main.async(execute: {
+                                        self.menuListTable.reloadData()
+                                        
+                                    })
+                                    
+                                    
+                                    
+                                }
                             }
+                            
+                            
+                            
                         }
-                        
-                        
-                        
+                    }catch let error as NSError{
+                        print(error)
                     }
-                }catch let error as NSError{
-                    print(error)
                 }
-            }
-            }.resume()
+                }.resume()
+
+            
+        })
+        
     }
 
 

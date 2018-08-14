@@ -132,6 +132,7 @@ class CategoryVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                     jsonResult = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! NSDictionary;                    
                     
                     var jsonElement = NSDictionary()
+                    self.category.removeAll()
                     
                     for (key,_) in jsonResult
                     {
