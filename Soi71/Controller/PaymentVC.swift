@@ -106,6 +106,17 @@ class PaymentVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             return PaymentTableCell()
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let pay = payMent[indexPath.row]
+        
+        if pay.paymenttitle == "Cash on delivery" {
+            
+            self.performSegue(withIdentifier: "toBilling", sender: nil)
+        }
+        
+    }
 
     
     @IBAction func payMentSelectionTapped(_ sender: UIButton!) {

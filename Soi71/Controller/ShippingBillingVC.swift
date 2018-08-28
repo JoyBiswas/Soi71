@@ -64,7 +64,7 @@ class ShippingBillingVC: UIViewController,UITextFieldDelegate {
                 do{
                     jsonResult = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! NSDictionary;
                     
-                    print("cart\(jsonResult)")
+                    
                     if let _ = jsonResult["subtotal"] as? String,
                         let shipping_total = jsonResult["shipping_total"] as? String,
                         let _ = jsonResult["total"] as? String
@@ -81,7 +81,7 @@ class ShippingBillingVC: UIViewController,UITextFieldDelegate {
                 }
             }
             }.resume()
-        print("Happend",shi_total)
+        
     }
     
     func cartList(){
@@ -159,7 +159,7 @@ class ShippingBillingVC: UIViewController,UITextFieldDelegate {
                 }
             }
             }.resume()
-        print("something",line_items)
+        
     }
     
     
@@ -243,7 +243,7 @@ class ShippingBillingVC: UIViewController,UITextFieldDelegate {
                 if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
                    
                     
-                    let alertController = UIAlertController(title:"Suceess.", message: "\(String(describing: json.values.first))" , preferredStyle: .alert)
+                    let alertController = UIAlertController(title:"Suceess 👍🏽.We will contact(📞) you very soon \(fname).", message: "\(json.values)" , preferredStyle: .alert)
                     
                     
                     alertController.view.backgroundColor = UIColor.green// change background color

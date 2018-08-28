@@ -10,6 +10,10 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 import GoogleSignIn
+import TwitterKit
+
+var googleSignIn = false
+var twitterSignIn = false
 
 var urlLink = "https://arifgroupint.com/test"
 var consumerKey_Sec = "consumer_key=ck_d7980b18f40501ebcfe221280a9234e6d11489a1&consumer_secret=cs_f9b4f19bbfdec5464af4596e41787e86741ed973"
@@ -157,198 +161,29 @@ class SoiHomeVC: UIViewController,GIDSignInUIDelegate{
     
     @IBAction func googleSignButtonTapped(_ sender: Any) {
         
+        googleSignIn = true
+        
         GIDSignIn.sharedInstance().signIn()
         
     }
     
+   
+    @IBAction func twitterSignInTapped(_ sender: Any) {
+        twitterSignIn = true
+        
+       TWTRTwitter.sharedInstance().logIn(completion: { (session, error) in
+            if (session != nil) {
+                print("signed in as \(String(describing: session?.userName))");
+            } else {
+                print("error: \(String(describing: error?.localizedDescription))");
+            }
+        })
+        
+    }
     
 
     
-    func aHttpReq() {
-        
-        let parameters: [String: Any] = [
-            
-            "customer":[
-                
-                "email": "john.doe@example.com",
-                "first_name": "John",
-                "last_name": "Doe",
-                "username": "john.doe",
-                "billing_address":[
-                    "first_name": "John",
-                    "last_name": "Doe",
-                    "company": "",
-                    "address_1": "969 Market",
-                    "address_2": "",
-                    "city": "San Francisco",
-                    "state": "CA",
-                    "postcode": "94103",
-                    "country": "US",
-                    "email": "john.doe@example.com",
-                    "phone": "(555) 555-5555"
-                ],
-                "shipping_address":[
-                    
-                    "first_name": "John",
-                    "last_name": "Doe",
-                    "company": "",
-                    "address_1": "969 Market",
-                    "address_2": "",
-                    "city": "San Francisco",
-                    "state": "CA",
-                    "postcode": "94103",
-                    "country": "US"
-                    
-                ]
-                
-            ]
-        ]
-        
-        
-        
-        
-        //create the url with URL
-        //change the url
-        
-        //create the session object
-        let session = URLSession.shared
-        
-        var request = URLRequest(url: URL(string:"https://arifgroupint.com/test/wc-api/v3/customers?consumer_key=ck_d7980b18f40501ebcfe221280a9234e6d11489a1&consumer_secret=cs_f9b4f19bbfdec5464af4596e41787e86741ed973")!)
-        request.httpMethod = "POST" //set http method as POST
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to nsdata object and set it as request body
-        } catch let error {
-            print(error.localizedDescription)
-        }
-        
-        
-        
-        //create dataTask using the session object to send data to the server
-        let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
-            
-            guard error == nil else {
-                return
-            }
-            
-            guard let data = data else {
-                return
-            }
-            let nsstr = NSString(data: data , encoding: String.Encoding.utf8.rawValue)
-            print("JOUUU\(nsstr!)")
-            
-            do {
-                
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
-                    
-                    // handle json...
-                    print(json)
-                }
-            }
-            catch let error {
-                print(error.localizedDescription)
-            }
-            
-        })
-        task.resume()
-    }
     
-    
-    func creatAnOrder() {
-        
-        let parameters: [String: Any] = [
-            
-            "order":[
-                "payment_details": [
-                    "method_id": "COD",
-                    "method_title": "Cash On Delivery",
-                    "paid": false
-                ],
-                "billing_address": [
-                    "first_name": "Joy",
-                    "last_name": "Biswas",
-                    "address_1": "kaderabad Housing",
-                    "address_2": "",
-                    "city": "Dhaka",
-                    "state": "D",
-                    "postcode": "1207",
-                    "country": "BD",
-                    "email": "cjoydevb@gmail.com",
-                    "phone": "+8801946999547"
-                ],
-                "shipping_address": [
-                    "first_name": "Joy",
-                    "last_name": "Biswas",
-                    "address_1": "kaderabad Housing",
-                    "address_2": "",
-                    "city": "Dhaka",
-                    "state": "D",
-                    "postcode": "1207",
-                    "country": "BD"
-                ],
-                "customer_id": 2,
-                "line_items": [
-                    [
-                        "product_id": 58,
-                        "quantity": 2
-                    ]
-                ],
-                "shipping_lines": [
-                    [
-                        "method_id": "flat_rate",
-                        "method_title": "Flat Rate",
-                        "total": 10
-                    ]
-                ]
-    ]
-        ]
-        
-        //create the session object
-        let session = URLSession.shared
-        
-        var request = URLRequest(url: URL(string:"https://arifgroupint.com/test/wc-api/v3/orders?consumer_key=ck_d7980b18f40501ebcfe221280a9234e6d11489a1&consumer_secret=cs_f9b4f19bbfdec5464af4596e41787e86741ed973")!)
-        request.httpMethod = "POST" //set http method as POST
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to nsdata object and set it as request body
-        } catch let error {
-            print(error.localizedDescription)
-        }
-        
-        
-        
-        //create dataTask using the session object to send data to the server
-        let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
-            
-            guard error == nil else {
-                return
-            }
-            
-            guard let data = data else {
-                return
-            }
-            let nsstr = NSString(data: data , encoding: String.Encoding.utf8.rawValue)
-            print("JOUUU\(nsstr!)")
-            
-            do {
-                
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
-                    
-                    // handle json...
-                    print(json)
-                }
-            }
-            catch let error {
-                print(error.localizedDescription)
-            }
-            
-        })
-        task.resume()
-    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         self.manuBtn()

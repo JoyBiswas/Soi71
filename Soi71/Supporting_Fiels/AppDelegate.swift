@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKCoreKit
 import GoogleSignIn
+import TwitterKit
 
 
 
@@ -26,21 +27,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         GIDSignIn.sharedInstance().delegate = self
         
+    TWTRTwitter.sharedInstance().start(withConsumerKey:"T6ET8gRNftKKV7NrOvWNkDWkn", consumerSecret:"6FSw3av0Bo3U9VztJAVCarnidEpMCmVVgTIQBD0QVo0hlv9Mc9")
+        
      
         return true
     }
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         
-        let handled = FBSDKApplicationDelegate.sharedInstance().application(app,
-                                                                            open: url,
-                                                                            sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String?,
-                                                                            annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+        
         
        // return handled
+        if googleSignIn == true {
+            return GIDSignIn.sharedInstance().handle(url as URL?,
+                                                     sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+                                                     annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+            
+        }else if twitterSignIn == true {
+            
+            return TWTRTwitter.sharedInstance().application(app, open: url, options: options)
+        }
+        
+        
+        else {
+            let handled = FBSDKApplicationDelegate.sharedInstance().application(app,
+                                                                                open: url,
+                                                                                sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String?,
+                                                                                annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+            return handled
+            
+        }
     
-        return GIDSignIn.sharedInstance().handle(url as URL?,
-                                                 sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-                                                 annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+        
     }
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         

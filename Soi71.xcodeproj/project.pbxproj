@@ -11,7 +11,6 @@
 		095DCDF6211EA4F700A0E07C /* PaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DCDF5211EA4F700A0E07C /* PaymentVC.swift */; };
 		095DCDF8211EA56D00A0E07C /* PaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DCDF7211EA56D00A0E07C /* PaymentModel.swift */; };
 		095DCDFA211EA5BB00A0E07C /* PaymentTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DCDF9211EA5BB00A0E07C /* PaymentTableCell.swift */; };
-		09B03BF621098E6100ADEFBA /* elipsFill.png in Resources */ = {isa = PBXBuildFile; fileRef = 09B03BF321098E5F00ADEFBA /* elipsFill.png */; };
 		09B03BF721098E6100ADEFBA /* elipsEmpty.png in Resources */ = {isa = PBXBuildFile; fileRef = 09B03BF421098E6000ADEFBA /* elipsEmpty.png */; };
 		09B03BF821098E6100ADEFBA /* elips.png in Resources */ = {isa = PBXBuildFile; fileRef = 09B03BF521098E6000ADEFBA /* elips.png */; };
 		09D4BF4D210595F200B99581 /* menuCellBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 09D4BF4B210595F100B99581 /* menuCellBG.png */; };
@@ -25,8 +24,6 @@
 		09D4BF5C2105E68E00B99581 /* CategoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D4BF5B2105E68E00B99581 /* CategoryTableCell.swift */; };
 		09D4BF5F2105E6E800B99581 /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D4BF5E2105E6E800B99581 /* CategoryVC.swift */; };
 		09DE2E622106E8BE005859E0 /* sponIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 09DE2E602106E8BD005859E0 /* sponIcon.png */; };
-		09DE2E632106E8BE005859E0 /* category.png in Resources */ = {isa = PBXBuildFile; fileRef = 09DE2E612106E8BE005859E0 /* category.png */; };
-		09DE2E652106F446005859E0 /* addtochartIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 09DE2E642106F446005859E0 /* addtochartIcon.png */; };
 		09DE2E67210705A2005859E0 /* MenuDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DE2E66210705A2005859E0 /* MenuDetailsVC.swift */; };
 		09DE2E69210726A4005859E0 /* FancyBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DE2E68210726A3005859E0 /* FancyBtn.swift */; };
 		09E3277B2102F481008BE91A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E3277A2102F481008BE91A /* AppDelegate.swift */; };
@@ -66,7 +63,6 @@
 		095DCDF5211EA4F700A0E07C /* PaymentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentVC.swift; sourceTree = "<group>"; };
 		095DCDF7211EA56D00A0E07C /* PaymentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentModel.swift; sourceTree = "<group>"; };
 		095DCDF9211EA5BB00A0E07C /* PaymentTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTableCell.swift; sourceTree = "<group>"; };
-		09B03BF321098E5F00ADEFBA /* elipsFill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = elipsFill.png; sourceTree = "<group>"; };
 		09B03BF421098E6000ADEFBA /* elipsEmpty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = elipsEmpty.png; sourceTree = "<group>"; };
 		09B03BF521098E6000ADEFBA /* elips.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = elips.png; sourceTree = "<group>"; };
 		09D4BF4B210595F100B99581 /* menuCellBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuCellBG.png; sourceTree = "<group>"; };
@@ -80,8 +76,6 @@
 		09D4BF5B2105E68E00B99581 /* CategoryTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableCell.swift; sourceTree = "<group>"; };
 		09D4BF5E2105E6E800B99581 /* CategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
 		09DE2E602106E8BD005859E0 /* sponIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sponIcon.png; sourceTree = "<group>"; };
-		09DE2E612106E8BE005859E0 /* category.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = category.png; sourceTree = "<group>"; };
-		09DE2E642106F446005859E0 /* addtochartIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addtochartIcon.png; sourceTree = "<group>"; };
 		09DE2E66210705A2005859E0 /* MenuDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailsVC.swift; sourceTree = "<group>"; };
 		09DE2E68210726A3005859E0 /* FancyBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyBtn.swift; sourceTree = "<group>"; };
 		09E327772102F481008BE91A /* Soi71.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soi71.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -238,13 +232,10 @@
 				09E327A0210336F6008BE91A /* register.png */,
 				09E327A3210336F7008BE91A /* Sign_in.png */,
 				09D4BF4B210595F100B99581 /* menuCellBG.png */,
-				09DE2E612106E8BE005859E0 /* category.png */,
-				09DE2E642106F446005859E0 /* addtochartIcon.png */,
 				09DE2E602106E8BD005859E0 /* sponIcon.png */,
 				09D4BF4F21059E2400B99581 /* searcbbarblack.png */,
 				09B03BF521098E6000ADEFBA /* elips.png */,
 				09B03BF421098E6000ADEFBA /* elipsEmpty.png */,
-				09B03BF321098E5F00ADEFBA /* elipsFill.png */,
 				09D4BF572105ABF800B99581 /* addTochart.png */,
 				09D4BF4C210595F200B99581 /* searchIUconWhite.png */,
 				CEA9F181210CB6F000277E65 /* popCross.png */,
@@ -353,7 +344,6 @@
 				09E327AA21034B57008BE91A /* roboto in Resources */,
 				09E3279F21032EE2008BE91A /* Fb_i.png in Resources */,
 				09E327852102F48D008BE91A /* LaunchScreen.storyboard in Resources */,
-				09DE2E632106E8BE005859E0 /* category.png in Resources */,
 				09E327B121046435008BE91A /* searchIcon.png in Resources */,
 				09B03BF721098E6100ADEFBA /* elipsEmpty.png in Resources */,
 				09E327822102F48D008BE91A /* Assets.xcassets in Resources */,
@@ -364,10 +354,8 @@
 				09E3279D21031208008BE91A /* Logo.png in Resources */,
 				09E327A7210336F7008BE91A /* Sign_in.png in Resources */,
 				09E327AF21046435008BE91A /* searchBarRect.png in Resources */,
-				09DE2E652106F446005859E0 /* addtochartIcon.png in Resources */,
 				09E327B221046435008BE91A /* Icon.png in Resources */,
 				09DE2E622106E8BE005859E0 /* sponIcon.png in Resources */,
-				09B03BF621098E6100ADEFBA /* elipsFill.png in Resources */,
 				09E327A5210336F7008BE91A /* TW_i.png in Resources */,
 				09E3279C21031208008BE91A /* bg.jpg in Resources */,
 				09D4BF4D210595F200B99581 /* menuCellBG.png in Resources */,
@@ -436,13 +424,11 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Soi71/Pods-Soi71-resources.sh",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
-				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterShareExtensionUIResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterShareExtensionUIResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

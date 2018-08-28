@@ -52,7 +52,7 @@ class HelpCode {
     
                             //                        if let name = jsonElement["name"] as? String,
                             print("KLKL\(String(describing: jsonElement["images"] ))")
-                            if let image = jsonElement["images"] as? [[String:Any]],
+                            if let _ = jsonElement["images"] as? [[String:Any]],
                                 let id = jsonElement["id"] as? Int,
                                 let slug = jsonElement["slug"] as? String,
                                 let tax_status = jsonElement["tax_status"] as? String,

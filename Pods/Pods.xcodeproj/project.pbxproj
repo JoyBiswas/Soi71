@@ -415,6 +415,7 @@
 		1ED5F2352AF4C4FEC368E2C75548F21B /* FBSDKLoginCompletion.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKLoginCompletion.m; path = FBSDKLoginKit/FBSDKLoginKit/Internal/FBSDKLoginCompletion.m; sourceTree = "<group>"; };
 		1F2842CC686A255E6311B764EDD76962 /* FBSDKLoginKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FBSDKLoginKit-umbrella.h"; sourceTree = "<group>"; };
 		1F2D5F0FC69FBDF60C7DC276FF6CA8B8 /* FBSDKAccessTokenCacheV3_17.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKAccessTokenCacheV3_17.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/TokenCaching/FBSDKAccessTokenCacheV3_17.h; sourceTree = "<group>"; };
+		1FD60617062333EDE30E98EF96B20815 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = iOS/TwitterKit.framework/TwitterKitResources.bundle; sourceTree = "<group>"; };
 		2053F15F252356C5F1F2B95C7D4F211D /* FBSDKCrypto.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKCrypto.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/Cryptography/FBSDKCrypto.m; sourceTree = "<group>"; };
 		2097FBBD9E4FD1A5F96E0BCBE7D293E4 /* GTMGatherInputStream.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMGatherInputStream.h; path = Source/GTMGatherInputStream.h; sourceTree = "<group>"; };
 		216C64A168C522D5330406F662179EEB /* FBSDKGraphErrorRecoveryProcessor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKGraphErrorRecoveryProcessor.h; path = FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphErrorRecoveryProcessor.h; sourceTree = "<group>"; };
@@ -489,7 +490,6 @@
 		5A5FD811539E13D8D145BAB935A3196F /* BFAppLink.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFAppLink.h; path = Bolts/iOS/BFAppLink.h; sourceTree = "<group>"; };
 		5AAE0C653A8CAFCF8574721761576D3D /* FBSDKAccessTokenExpirer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKAccessTokenExpirer.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/TokenCaching/FBSDKAccessTokenExpirer.m; sourceTree = "<group>"; };
 		5AFF09525DE5B4D77E00ADCCF5EEF58E /* FBSDKBase64.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKBase64.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/Base64/FBSDKBase64.h; sourceTree = "<group>"; };
-		5B999B0EED6949DC953AF36D5D4B6278 /* TwitterShareExtensionUIResources.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = TwitterShareExtensionUIResources.bundle; path = iOS/TwitterKit.framework/TwitterShareExtensionUIResources.bundle; sourceTree = "<group>"; };
 		5BA6C3989CBBAE53DE68F9E4083240F9 /* FBSDKErrorConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKErrorConfiguration.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/ServerConfiguration/FBSDKErrorConfiguration.m; sourceTree = "<group>"; };
 		5C977BAD72266850EA08C01B6808F415 /* FBSDKLoginCompletion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKLoginCompletion.h; path = FBSDKLoginKit/FBSDKLoginKit/Internal/FBSDKLoginCompletion.h; sourceTree = "<group>"; };
 		5D07FB06102378820A3251FFFD156B7F /* FBSDKURLSessionTask.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKURLSessionTask.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/Network/FBSDKURLSessionTask.h; sourceTree = "<group>"; };
@@ -605,6 +605,7 @@
 		ACE8CABAD7F2C027CB54AD94AC74F95F /* FBSDKWebDialog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKWebDialog.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/WebDialog/FBSDKWebDialog.h; sourceTree = "<group>"; };
 		AE8E310773A8470DEFA37D03CFE7E870 /* GoogleToolboxForMac-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GoogleToolboxForMac-prefix.pch"; sourceTree = "<group>"; };
 		AED0C9A37E12105C92A9462257C9D432 /* BFAppLinkResolving.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFAppLinkResolving.h; path = Bolts/iOS/BFAppLinkResolving.h; sourceTree = "<group>"; };
+		B024A3B5BDA8902A89312E432FC6B1B4 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterKit.framework; path = iOS/TwitterKit.framework; sourceTree = "<group>"; };
 		B0595776E508AA0A1505958B1BAAA544 /* FBSDKSettings.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKSettings.m; path = FBSDKCoreKit/FBSDKCoreKit/FBSDKSettings.m; sourceTree = "<group>"; };
 		B06DAB4F32F662DF7376E8BC8744ED62 /* FBSDKDeviceLoginCodeInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKDeviceLoginCodeInfo.h; path = FBSDKLoginKit/FBSDKLoginKit/FBSDKDeviceLoginCodeInfo.h; sourceTree = "<group>"; };
 		B08569FB978D696E269700EA32110F3D /* BFAppLinkReturnToRefererView_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFAppLinkReturnToRefererView_Internal.h; path = Bolts/iOS/Internal/BFAppLinkReturnToRefererView_Internal.h; sourceTree = "<group>"; };
@@ -622,7 +623,6 @@
 		B5BE1194FA950FCFC4849AFE0C24A384 /* GTMSessionFetcher.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GTMSessionFetcher.xcconfig; sourceTree = "<group>"; };
 		B67A6918564BF8E6798379407C552732 /* FBSDKLoginTooltipView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKLoginTooltipView.m; path = FBSDKLoginKit/FBSDKLoginKit/FBSDKLoginTooltipView.m; sourceTree = "<group>"; };
 		B74132C228675E79DDC558351DAECE7F /* GTMSessionUploadFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMSessionUploadFetcher.m; path = Source/GTMSessionUploadFetcher.m; sourceTree = "<group>"; };
-		B75A9BD242AB24AD1C5003B6E75C2597 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = iOS/TwitterKit.framework/TwitterKitResources.bundle; sourceTree = "<group>"; };
 		B80BE93D5BCD744E7BA272560F971C45 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B81B3690499DEE658FE11383AA74DEDC /* GTMSessionFetcherLogging.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMSessionFetcherLogging.m; path = Source/GTMSessionFetcherLogging.m; sourceTree = "<group>"; };
 		B95B9AEDD85D9D9C47AEFB7E6ED4B5B9 /* GTMGatherInputStream.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMGatherInputStream.m; path = Source/GTMGatherInputStream.m; sourceTree = "<group>"; };
@@ -696,7 +696,6 @@
 		EF40F48011400B8C6C934EF76370CD83 /* GTMOAuth2Authentication.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMOAuth2Authentication.h; path = Source/GTMOAuth2Authentication.h; sourceTree = "<group>"; };
 		EF77D2D383AFC05D17F1B508B01535F3 /* BFAppLinkNavigation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFAppLinkNavigation.m; path = Bolts/iOS/BFAppLinkNavigation.m; sourceTree = "<group>"; };
 		F0110E77F7B91B0D9E043AF8AB2DF90B /* FBSDKCoreKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FBSDKCoreKit-prefix.pch"; sourceTree = "<group>"; };
-		F020A90245F1173A1C668ACEF810898B /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterKit.framework; path = iOS/TwitterKit.framework; sourceTree = "<group>"; };
 		F1E373F060F55EE1501AF9C0D65E6BAF /* Pods-Soi71.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Soi71.debug.xcconfig"; sourceTree = "<group>"; };
 		F47283CE67452E535A692BF96C92536F /* GTMSessionFetcher-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GTMSessionFetcher-umbrella.h"; sourceTree = "<group>"; };
 		F4C44CE41364B842BDAB3437DD38CA56 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -807,7 +806,7 @@
 				133211EA811B442F8DB8A2EC86983B7F /* GTMOAuth2 */,
 				567F5D1A14B53D0F7E7C1CCD824A9DC3 /* GTMSessionFetcher */,
 				7FF8ED0032E54A549B05D9ACFC45D5B5 /* TwitterCore */,
-				D0896AD1A12E17ACF2602777923CEDA3 /* TwitterKit */,
+				5566572D0D27030AFB30ABED4E17BEEE /* TwitterKit */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -830,13 +829,14 @@
 			path = "Target Support Files/Pods-Soi71";
 			sourceTree = "<group>";
 		};
-		4B5A1C8A575AFA2F6DE9CD7A3F4106A4 /* Resources */ = {
+		5566572D0D27030AFB30ABED4E17BEEE /* TwitterKit */ = {
 			isa = PBXGroup;
 			children = (
-				B75A9BD242AB24AD1C5003B6E75C2597 /* TwitterKitResources.bundle */,
-				5B999B0EED6949DC953AF36D5D4B6278 /* TwitterShareExtensionUIResources.bundle */,
+				669FC4B2144BA5366578F14C5CFCFBDC /* Frameworks */,
+				8EFDAA08A6D5779D31BFFC33558ED86B /* Resources */,
 			);
-			name = Resources;
+			name = TwitterKit;
+			path = TwitterKit;
 			sourceTree = "<group>";
 		};
 		567F5D1A14B53D0F7E7C1CCD824A9DC3 /* GTMSessionFetcher */ = {
@@ -875,6 +875,14 @@
 			isa = PBXGroup;
 			children = (
 				F8A718A68ECCDABD53FE63B13E0433EC /* TwitterCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		669FC4B2144BA5366578F14C5CFCFBDC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B024A3B5BDA8902A89312E432FC6B1B4 /* TwitterKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1014,6 +1022,14 @@
 			path = "../Target Support Files/GTMSessionFetcher";
 			sourceTree = "<group>";
 		};
+		8EFDAA08A6D5779D31BFFC33558ED86B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1FD60617062333EDE30E98EF96B20815 /* TwitterKitResources.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		985624928F8F09A3FF01CD47BD3CF206 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -1078,14 +1094,6 @@
 				96BF36BF862C72415D02810A0C846BB4 /* GTMDefines.h */,
 			);
 			name = Defines;
-			sourceTree = "<group>";
-		};
-		A047F5E25DE28A8CC31E00CBD4BD51E5 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F020A90245F1173A1C668ACEF810898B /* TwitterKit.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A24961E00001A3ABB47886800DBAA76C /* Support Files */ = {
@@ -1357,16 +1365,6 @@
 				0C77BBFE0B4BC7501A24176B9ADCADA7 /* Bolts.m */,
 			);
 			name = Tasks;
-			sourceTree = "<group>";
-		};
-		D0896AD1A12E17ACF2602777923CEDA3 /* TwitterKit */ = {
-			isa = PBXGroup;
-			children = (
-				A047F5E25DE28A8CC31E00CBD4BD51E5 /* Frameworks */,
-				4B5A1C8A575AFA2F6DE9CD7A3F4106A4 /* Resources */,
-			);
-			name = TwitterKit;
-			path = TwitterKit;
 			sourceTree = "<group>";
 		};
 		DBC97634FCF0BBD5467566B22C3C8346 /* GoogleSignIn */ = {

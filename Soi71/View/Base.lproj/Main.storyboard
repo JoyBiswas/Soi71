@@ -56,6 +56,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTn-z3-f1c">
                                                 <rect key="frame" x="0.0" y="63.5" width="260" height="53"/>
                                                 <state key="normal" image="TW_i.png"/>
+                                                <connections>
+                                                    <action selector="twitterSignInTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fuK-Tz-Ho2"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PiX-Fi-ikD">
                                                 <rect key="frame" x="0.0" y="126.5" width="260" height="53.5"/>
@@ -322,7 +325,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="971.25" y="32.74647887323944"/>
+            <point key="canvasLocation" x="-444" y="467"/>
         </scene>
         <!--Search FoodVC-->
         <scene sceneID="Rgs-zN-GBe">
@@ -748,7 +751,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1003" y="1219"/>
+            <point key="canvasLocation" x="746" y="467"/>
         </scene>
         <!--MenuVC-->
         <scene sceneID="Obm-CK-CQl">
@@ -1020,7 +1023,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DSp-dz-598" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1928" y="1218"/>
+            <point key="canvasLocation" x="1748" y="467"/>
         </scene>
         <!--Menu DetailsVC-->
         <scene sceneID="KKw-vs-puD">
@@ -1322,7 +1325,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qIW-LJ-G2j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1928" y="281"/>
+            <point key="canvasLocation" x="1748" y="1414"/>
         </scene>
         <!--CategoryVC-->
         <scene sceneID="zxM-ap-po0">
@@ -1509,7 +1512,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H0n-5W-Gpe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2858" y="1981"/>
+            <point key="canvasLocation" x="2708" y="467"/>
         </scene>
         <!--ChartVC-->
         <scene sceneID="5fi-6I-g6X">
@@ -2146,7 +2149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OJv-ak-u5f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2901" y="505"/>
+            <point key="canvasLocation" x="1609" y="2363"/>
         </scene>
         <!--PaymentVC-->
         <scene sceneID="ufB-gW-Uu3">
@@ -2232,7 +2235,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="v7S-Cu-Gv2">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="v7S-Cu-Gv2">
                                 <rect key="frame" x="40" y="64" width="240" height="454"/>
                                 <color key="backgroundColor" red="0.18429717421531677" green="0.18432343006134033" blue="0.18428507447242737" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
@@ -2319,7 +2322,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LbB-PX-wht" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3643.125" y="503.87323943661971"/>
+            <point key="canvasLocation" x="2708" y="2362"/>
         </scene>
         <!--Shipping BillingVC-->
         <scene sceneID="yR4-Q3-iDL">
@@ -2363,14 +2366,14 @@
                                     <action selector="confirmOrderTapped:" destination="sSd-Jj-Bux" eventType="touchUpInside" id="3AD-fD-tU6"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="g3X-up-csN">
-                                <rect key="frame" x="10" y="83" width="300" height="360"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="g3X-up-csN">
+                                <rect key="frame" x="10" y="83" width="300" height="320"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="SAu-jT-JFJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="48"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zih-ys-dOf">
-                                                <rect key="frame" x="0.0" y="0.0" width="148.5" height="48"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="148.5" height="44"/>
                                                 <color key="backgroundColor" red="0.9999268651008606" green="1" blue="0.9998735785484314" alpha="0.3828125" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
@@ -2380,7 +2383,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cX1-NL-hQP">
-                                                <rect key="frame" x="151.5" y="0.0" width="148.5" height="48"/>
+                                                <rect key="frame" x="151.5" y="0.0" width="148.5" height="44"/>
                                                 <color key="backgroundColor" red="0.9999268651008606" green="1" blue="0.9998735785484314" alpha="0.3828125" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
@@ -2389,10 +2392,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="APO-c5-Bxb">
-                                        <rect key="frame" x="0.0" y="78" width="300" height="48"/>
+                                        <rect key="frame" x="0.0" y="69" width="300" height="44"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Adress1" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QgZ-Oh-Rpp">
-                                                <rect key="frame" x="0.0" y="0.0" width="148.5" height="48"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="148.5" height="44"/>
                                                 <color key="backgroundColor" red="0.4352601170539856" green="0.43531399965286255" blue="0.43523532152175903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
@@ -2402,7 +2405,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Adress2(optional)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4zF-lc-Soa">
-                                                <rect key="frame" x="151.5" y="0.0" width="148.5" height="48"/>
+                                                <rect key="frame" x="151.5" y="0.0" width="148.5" height="44"/>
                                                 <color key="backgroundColor" red="0.4352601170539856" green="0.43531399965286255" blue="0.43523532152175903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
@@ -2411,10 +2414,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="dmq-Lz-G3T">
-                                        <rect key="frame" x="0.0" y="156" width="300" height="48"/>
+                                        <rect key="frame" x="0.0" y="138" width="300" height="44"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ing-O8-mTq">
-                                                <rect key="frame" x="0.0" y="0.0" width="148.5" height="48"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="148.5" height="44"/>
                                                 <color key="backgroundColor" red="0.34899163246154785" green="0.34903600811958313" blue="0.34897121787071228" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
@@ -2424,7 +2427,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="State" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="454-bq-CU1">
-                                                <rect key="frame" x="151.5" y="0.0" width="148.5" height="48"/>
+                                                <rect key="frame" x="151.5" y="0.0" width="148.5" height="44"/>
                                                 <color key="backgroundColor" red="0.34899163246154785" green="0.34903600811958313" blue="0.34897121787071228" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
@@ -2433,10 +2436,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="jFC-dw-Ooh">
-                                        <rect key="frame" x="0.0" y="234" width="300" height="48"/>
+                                        <rect key="frame" x="0.0" y="207" width="300" height="44"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Postal Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sYl-a6-TGf">
-                                                <rect key="frame" x="0.0" y="0.0" width="148.5" height="48"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="148.5" height="44"/>
                                                 <color key="backgroundColor" red="0.2784082293510437" green="0.27844488620758057" blue="0.27839139103889465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
@@ -2446,7 +2449,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gbr-56-oTs">
-                                                <rect key="frame" x="151.5" y="0.0" width="148.5" height="48"/>
+                                                <rect key="frame" x="151.5" y="0.0" width="148.5" height="44"/>
                                                 <color key="backgroundColor" red="0.2784082293510437" green="0.27844488620758057" blue="0.27839139103889465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
@@ -2455,10 +2458,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="kcX-hD-3LW">
-                                        <rect key="frame" x="0.0" y="312" width="300" height="48"/>
+                                        <rect key="frame" x="0.0" y="276" width="300" height="44"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p5c-2b-8wy">
-                                                <rect key="frame" x="0.0" y="0.0" width="148.5" height="48"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="148.5" height="44"/>
                                                 <color key="backgroundColor" red="0.4352601170539856" green="0.43531399965286255" blue="0.43523532152175903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
@@ -2468,7 +2471,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phn No" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LL3-UP-ndk">
-                                                <rect key="frame" x="151.5" y="0.0" width="148.5" height="48"/>
+                                                <rect key="frame" x="151.5" y="0.0" width="148.5" height="44"/>
                                                 <color key="backgroundColor" red="0.4352601170539856" green="0.43531399965286255" blue="0.43523532152175903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
@@ -2483,7 +2486,7 @@
                         <constraints>
                             <constraint firstItem="C49-P2-WkU" firstAttribute="leading" secondItem="wqP-cM-Lx6" secondAttribute="leading" id="8Jd-Mc-ucS"/>
                             <constraint firstItem="wqP-cM-Lx6" firstAttribute="trailing" secondItem="C49-P2-WkU" secondAttribute="trailing" id="B3M-uJ-P7w"/>
-                            <constraint firstItem="C49-P2-WkU" firstAttribute="top" secondItem="g3X-up-csN" secondAttribute="bottom" constant="80" id="Blu-YK-dXX"/>
+                            <constraint firstItem="C49-P2-WkU" firstAttribute="top" secondItem="g3X-up-csN" secondAttribute="bottom" constant="120" id="Blu-YK-dXX"/>
                             <constraint firstItem="wqP-cM-Lx6" firstAttribute="bottom" secondItem="C49-P2-WkU" secondAttribute="bottom" id="NF1-dt-fBg"/>
                             <constraint firstItem="Bsl-3Z-rbu" firstAttribute="centerX" secondItem="NOj-JA-Z70" secondAttribute="centerX" id="VKG-eJ-UVO"/>
                             <constraint firstItem="g3X-up-csN" firstAttribute="leading" secondItem="wqP-cM-Lx6" secondAttribute="leading" constant="10" id="VPz-eU-BS1"/>
@@ -2530,7 +2533,7 @@
                     <viewLayoutGuide key="safeArea" id="xWZ-mn-OFU"/>
                 </stackView>
             </objects>
-            <point key="canvasLocation" x="4363" y="505"/>
+            <point key="canvasLocation" x="3909" y="2362"/>
         </scene>
     </scenes>
     <resources>
@@ -2554,10 +2557,10 @@
         <image name="sponIcon.png" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dXi-WY-U9h"/>
-        <segue reference="B8N-04-Kj8"/>
-        <segue reference="tek-5o-bNA"/>
-        <segue reference="eeS-HL-97Q"/>
-        <segue reference="rXS-oL-fGG"/>
+        <segue reference="lI6-0h-l1X"/>
+        <segue reference="giF-QF-te8"/>
+        <segue reference="bSe-0Q-Cpk"/>
+        <segue reference="RBn-84-ejm"/>
+        <segue reference="KR6-To-BOU"/>
     </inferredMetricsTieBreakers>
 </document>
